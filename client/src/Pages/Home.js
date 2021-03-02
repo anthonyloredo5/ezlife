@@ -1,9 +1,9 @@
-import Navbar from '';
+import Drawer from '../components/Drawer';
 
 function Home () {
     return(
-        <Navbar />
-    )
+        <Drawer/>
+    );
 }
 
 export default Home;
