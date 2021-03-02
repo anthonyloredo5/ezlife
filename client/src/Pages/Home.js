@@ -1,8 +1,12 @@
 import Drawer from '../components/Drawer';
-
+import HomeWidget from '../components/HomeWidget';
 function Home () {
     return(
-        <Drawer/>
+        <container>
+        <Drawer/> 
+        <HomeWidget/>
+        </container>
+
     );
 }
 
