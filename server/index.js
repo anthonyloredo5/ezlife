@@ -6,23 +6,22 @@ import dotenv from 'dotenv';
 import path from 'path'
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
-import userRoutes from './routes/users.js'
+import userRoutes from './routes/routes.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-
-//import postRoutes from './routes/posts.js';
 
 const app = express();
 dotenv.config();
 
 //app.use(express.static(__dirname + '/client/build'));
-app.use('/users', userRoutes);
+
 
 //middle for mongoose
 app.use(bodyParser.json({ limit:"30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit:"30mb", extended: true }));
 app.use(cors());
 
+app.use('/api', userRoutes);
 //middle for posts
 //adds "posts" to all post routes coming into this file
 //app.use('/posts', postRoutes);
