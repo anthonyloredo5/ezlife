@@ -2,8 +2,11 @@ POST http://localhost:5000/api/signup
 Content-Type: application/json
 
 {
-    "fullName": "Ant",
-    "userName": "Antman",
-    "email": "ant@ant.com",
-    "password": "ant123"
+    "fullName": "Smith",
+    "userName": "Smithman",
+    "email": "Smith@Smith.com",
+    "password": "Smith123"
 }
+
+//axios.post('http://localhost:5000/api/signup', objectwithuserdata)
+//.then((response) => {console.log(response.data)})
