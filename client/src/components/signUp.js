@@ -1,6 +1,9 @@
-import { TextField, Grid, Card, Button } from '@material-ui/core'
+import { TextField, Grid, Button, Typography, Link, Container, CssBaseline, Avatar, FormControlLabel, Box, Checkbox } from '@material-ui/core'
 import { useState } from 'react';
 import axios from 'axios';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Copyright from './Copyright';
+
 
 function signUp() {
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -12,13 +15,11 @@ function signUp() {
     });
 
     const handleState = (e) => {
+        const { name, value } = e.target;
 
         setItems({
             ...items,
-            fullName: e.target.value.fullName,
-            userName: e.target.value.userName,
-            email: e.target.value.email,
-            password: e.target.value.password
+            [name]: value,
         });
     }
 
@@ -32,6 +33,8 @@ function signUp() {
             password: items.password,
         }
 
+        console.log(registeredUser);
+
         axios.post('http://localhost:5000/api/signup', registeredUser)
             .then((response) => { console.log(response.data) })
             .catch((err) => err.message);
@@ -40,28 +43,96 @@ function signUp() {
 
     return (
         <>
-            <Card>
-                <Grid container direction="column"
-                    justify="center"
-                    alignItems="center" spacing={2}>
-                    <Grid item xs={6} >
-                        <TextField name="fullName" label="Full Name" variant="filled" onChange={handleState} />
-                    </Grid>
-                    <Grid item xs={6} >
-                        <TextField name="userName" label="Username" variant="filled" onChange={handleState} />
-                    </Grid>
-                    <Grid item xs={6} >
-                        <TextField name="email" label="email" variant="filled" onChange={handleState} />
-                    </Grid>
-                    <Grid item xs={6} >
-                        <TextField name="password" label="password" variant="filled" onChange={handleState} />
-                    </Grid>
+            <Container component="main" maxWidth="xs">
+                <CssBaseline />
+                <div >
+                    <Avatar >
+                        <LockOutlinedIcon />
+                    </Avatar>
+                    <Typography component="h1" variant="h5">
+                        Sign Up
+        </Typography>
+                    <form noValidate>
+                        <TextField
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            fullWidth
+                            id="fullName"
+                            label="Full Name"
+                            name="fullName"
+                            autoComplete="fullName"
+                            autoFocus
+                            onChange={handleState}
+                        />
+                        <TextField
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            fullWidth
+                            id="userName"
+                            label="Username"
+                            name="userName"
+                            autoComplete="userName"
+                            autoFocus
+                            onChange={handleState}
+                        />
+                        <TextField
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            fullWidth
+                            id="email"
+                            label="Email Address"
+                            name="email"
+                            autoComplete="email"
+                            autoFocus
+                            onChange={handleState}
+                        />
+                        <TextField
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            fullWidth
+                            name="password"
+                            label="Password"
+                            type="password"
+                            id="password"
+                            autoComplete="current-password"
+                            onChange={handleState}
+                        />
+                        <FormControlLabel
+                            control={<Checkbox value="remember" color="primary" />}
+                            label="Remember me"
+                        />
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            color="primary"
+                            onClick={handleSubmit}
 
-                </Grid>
-                <Button item xs={6} variant="contained" color="primary" onClick={handleSubmit}>
-                    Submit
-                </Button>
-            </Card>
+                        >
+                            Sign Up
+          </Button>
+                        <Grid container>
+                            <Grid item xs>
+                                <Link href="#" variant="body2">
+                                    Forgot password?
+              </Link>
+                            </Grid>
+                            <Grid item>
+                                <Link href="#" variant="body2">
+                                    {"Have an account? Sign In"}
+                                </Link>
+                            </Grid>
+                        </Grid>
+                    </form>
+                </div>
+                <Box mt={8}>
+                    <Copyright />
+                </Box>
+            </Container>
         </>
     );
 }
