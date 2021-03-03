@@ -3,17 +3,14 @@ import Hero from "../components/Hero";
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
-import background from "../images/background1.jpg"
+import background from "../images/background1.png"
 
 function Homepage() {
   return (
     <div>
-        <div style={{ backgroundImage: `url(${background})` }}>
-      <Hero>
-        <h1>ezlife</h1>
-        <h2>Your life-simplifier tool.</h2>
+      <Hero backgroundImage= {background}> 
+        {/* <div style={{ backgroundImage: `url(${background})` }}> */}
       </Hero>
-      </div>
       <Container style={{ marginTop: 30 }}>
         <Row>
           <Col size="md-12">
