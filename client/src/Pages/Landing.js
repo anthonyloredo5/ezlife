@@ -4,12 +4,12 @@ import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
 import background from "../images/background1.jpg"
-import ModalStart from "../components/modal"; 
+import ModalSignUp from "../components/modalSignUp"; 
 
  
 
 
-function Homepage() {
+function Landing() {
   return (
     <div>
         <div style={{ backgroundImage: `url(${background})` }}>
@@ -27,7 +27,7 @@ function Homepage() {
         <Row>
           <Col size="md-12">
             
-          <ModalStart />
+          <ModalSignUp />
 
           </Col>
         </Row>
@@ -37,4 +37,4 @@ function Homepage() {
   );
 }
 
-export default Homepage;
+export default Landing;
