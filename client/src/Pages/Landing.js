@@ -3,13 +3,14 @@ import Hero from "../components/Hero";
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
-import background from "../images/background1.png"
-import ModalStart from "../components/modal"; 
+import background from "../images/background1.jpg"
+import ModalSignUp from "../components/modalSignUp"; 
+
 
  
 
 
-function Homepage() {
+function Landing() {
   return (
     <div>
       <Hero backgroundImage= {background}> 
@@ -24,7 +25,7 @@ function Homepage() {
         <Row>
           <Col size="md-12">
             
-          <ModalStart />
+          <ModalSignUp />
 
           </Col>
         </Row>
@@ -34,4 +35,4 @@ function Homepage() {
   );
 }
 
-export default Homepage;
+export default Landing;
