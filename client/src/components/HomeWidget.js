@@ -1,4 +1,5 @@
-import Container from '@material-ui/core/Container';
+import container from '@material-ui/core/Container';
+import Container from "../components/Container";
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper'; 
 
