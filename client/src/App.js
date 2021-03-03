@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 //import './App.css';
 import Wrapper from "./components/Wrapper";
 import Homepage from './Pages/Homepage';
-import signUp from './components/signUp';
+import Home from "./Pages/Home";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <div>
         <Wrapper>
           <Route exact path="/" component={Homepage} />
-          <Route exact path="/signUp" component={signUp} />
+          <Route exact path="/home" component={Home} />
         </Wrapper>
       </div>
     </Router>
