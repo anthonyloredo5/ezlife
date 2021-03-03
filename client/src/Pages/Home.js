@@ -4,6 +4,7 @@ function Home () {
     return(
         <container>
         <Drawer/> 
+        
         <HomeWidget/>
         </container>
 

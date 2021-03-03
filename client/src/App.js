@@ -20,11 +20,8 @@ function App() {
       <div>
         <Wrapper>
 
-          <Route exact path="/" component={Home} />
-
           <Route exact path="/" component={Homepage} />
           <Route exact path="/home" component={Home} />
-
           <Route exact path="/signUp" component={signUp} />
 
         </Wrapper>
