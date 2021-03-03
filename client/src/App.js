@@ -9,7 +9,7 @@ import Homepage from './Pages/Homepage';
 
 import Home from "./Pages/Home";
 import signUp from './components/signUp';
-
+import Login from './components/Login';
 
 
 
@@ -26,6 +26,7 @@ function App() {
           <Route exact path="/home" component={Home} />
 
           <Route exact path="/signUp" component={signUp} />
+          <Route exact path="/Login" component={Login} />
 
         </Wrapper>
       </div>
