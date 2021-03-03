@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Wrapper from "./components/Wrapper";
 import Homepage from './Pages/Homepage';
 import Home from "./Pages/Home";
+import signUp from './components/signUp';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Wrapper>
           <Route exact path="/" component={Homepage} />
           <Route exact path="/home" component={Home} />
+          <Route exact path="/signUp" component={signUp} />
         </Wrapper>
       </div>
     </Router>
