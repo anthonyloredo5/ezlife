@@ -9,7 +9,7 @@ import ModalStart from "../components/modal";
  
 
 
-function Homepage() {
+function Landing() {
   return (
     <div>
       <Hero backgroundImage= {background}> 
@@ -34,4 +34,4 @@ function Homepage() {
   );
 }
 
-export default Homepage;
+export default Landing;

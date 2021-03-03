@@ -2,9 +2,9 @@ import React from "react";
 import Container from "../components/Container";
 import Jumbotron from "../components/Jumbotron"; 
 import Drawer from '../components/Drawer';
-
 import HomeWidget from '../components/HomeWidget';
-function Home() {
+
+function Dash() {
     return (
         <Container>
             <Drawer />
@@ -15,4 +15,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default Dash;
