@@ -2,14 +2,10 @@ import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 //import './App.css';
 import Wrapper from "./components/Wrapper";
-
-
-
-import Homepage from './Pages/Homepage';
-
-import Home from "./Pages/Home";
-import signUp from './components/signUp';
-
+import Landing from './Pages/Landing';
+import Dash from "./Pages/Dash";
+import CreateAccount from './components/CreateAccount';
+import Login from './components/Login';
 
 
 
@@ -20,12 +16,10 @@ function App() {
       <div>
         <Wrapper>
 
-          <Route exact path="/" component={Home} />
-
-          <Route exact path="/" component={Homepage} />
-          <Route exact path="/home" component={Home} />
-
-          <Route exact path="/signUp" component={signUp} />
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/dash" component={Dash} />
+          <Route exact path="/signUp" component={CreateAccount} />
+          <Route exact path="/Login" component={Login} />
 
         </Wrapper>
       </div>
