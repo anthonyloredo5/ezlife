@@ -45,6 +45,7 @@ import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
 import StarsIcon from '@material-ui/icons/Stars';
 import ImportantDevicesIcon from '@material-ui/icons/ImportantDevices';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
 const drawerWidth = 240;
 
@@ -138,6 +139,11 @@ export default function PersistentDrawerLeft() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
+            <IconButton 
+            aria-label="list"
+           >
+           <FavoriteBorderIcon  style={{ color: "#fdd835" }}/>
+            </IconButton>
             ezlife
           </Typography>
         </Toolbar>

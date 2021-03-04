@@ -1,16 +1,27 @@
 import React from "react";
+
+import background from "../images/jumbo.png"
 import Quote from "./Quote"; 
 
 function Jumbotron() {
     return (
-    < div class="jumbotron jumbotron-fluid" >
-        <div class="container">
-            <h1 class="text-center">ezlife</h1>
+    <div class="jumbotron jumbotron-fluid container justify ='center' "  style={{
+    width: "1000px",
+    paddingTop: "0px",
+    paddingBottom: "0px",
+    marginBottom: "20px",
+    height: "190px",
+    overflow: "auto",
+    backgroundImage: `url(${background})`,
+      }} >
+         
+     
+    <div>
             <br></br>
             <br></br>
             <Quote />
             </div>
-    </div >
+    </div>
     )
 }
 
