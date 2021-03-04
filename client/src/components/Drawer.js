@@ -1,27 +1,3 @@
-// import { Drawer as MUIDrawer,
-//     ListItem,
-//     List,
-//     ListItemIcon,
-//     ListItemText,
-//     } from '@material-ui/core';
-    
-//     function Drawer () {
-//         return(
-//             <MUIDrawer variant="permanent">
-//             <List>
-//               {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-//                 <ListItem button key={text}>
-//                   {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
-//                   <ListItemText primary={text} />
-//                 </ListItem>
-//               ))}
-//             </List>
-//             </MUIDrawer>
-//         );
-//     }
-    
-//     export default Drawer;
-
 import React from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -29,6 +5,7 @@ import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import Link from '@material-ui/core/Link';
 import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
@@ -163,29 +140,39 @@ export default function PersistentDrawerLeft() {
           </IconButton>
         </div>
         <Divider />
+        
         <List>
-          {['Timer', 'To-do'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? < AccessAlarmIcon/> : <FormatListBulletedIcon/>}</ListItemIcon>
-              <ListItemText primary={text} />
+          {[{ text: 'Timer', url: "/timer", icon: <AccessAlarmIcon />}, { text:'To-do', url: "/todo", icon: <FormatListBulletedIcon/>}].map((item, index) => (
+            <Link to={item.url}>
+            <ListItem button key={item.text}>
+              {/* <ListItemIcon>{index % 2 === 0 ? < AccessAlarmIcon/> : <FormatListBulletedIcon/>}</ListItemIcon> */}
+              <ListItemIcon>{item.icon}</ListItemIcon>
+              <ListItemText primary={item.text} />
             </ListItem>
+            </Link>
           ))}
         </List>
         <List> 
-          {['Workouts', 'Goals'].map((text,index) => (
-            <ListItem button key= {text}>
-              <ListItemIcon>{index % 2 === 0 ? <FitnessCenterIcon/> : <StarsIcon/>  }</ListItemIcon>
-              <ListItemText primary={text}/>
+          {[{ text: 'Workouts', url: '/fitness', icon: <FitnessCenterIcon/>}, { text: 'Goals', url: '/goals', icon: <StarsIcon/>}].map((item,index) => (
+            <Link to={item.url}>
+            <ListItem button key= {item.text}>
+              {/* <ListItemIcon>{index % 2 === 0 ? <FitnessCenterIcon/> : <StarsIcon/>  }</ListItemIcon> */}
+              <ListItemIcon>{item.icon}</ListItemIcon>
+              <ListItemText primary={item.text}/>
             </ListItem>
+            </Link>
           ))}
         </List>
         <Divider />
         <List>
-          {['Screentime', 'Budget'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <ImportantDevicesIcon/> : <AttachMoneyIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
+          {[{ text:'Screentime', url: '/screentime', icon: <ImportantDevicesIcon/>}, { text: 'Budget', url: '/budget', icon: <AttachMoneyIcon/>}].map((item, index) => (
+            <Link to={item.url}>
+            <ListItem button key={item.text}>
+              {/* <ListItemIcon>{index % 2 === 0 ? <ImportantDevicesIcon/> : <AttachMoneyIcon />}</ListItemIcon> */}
+              <ListItemIcon>{item.icon}</ListItemIcon>
+              <ListItemText primary={item.text} />
             </ListItem>
+            </Link>
           ))}
         </List>
       </Drawer>
@@ -200,3 +187,4 @@ export default function PersistentDrawerLeft() {
     </div>
   );
 }
+
