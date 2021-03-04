@@ -2,7 +2,9 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import GoalChart from './GoalPieChart';
-import WaterBottle from './WaterBottleGraph';
+import WaterBottle from './WaterIntake/WaterBottleGraph';
+import WorkoutChart from './WorkoutGraph';
+
 
 function HomeWidget() {
     return (
@@ -29,7 +31,7 @@ function HomeWidget() {
                     <GoalChart/> Goal Progress
                 </Grid> 
                 <Grid item>
-                    <Paper style = {{height: 200, width: 200 }}/> Workout Streak
+                    <WorkoutChart/>
                 </Grid>
             </Grid>
     </Box>

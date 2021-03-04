@@ -2,31 +2,23 @@ import * as React from 'react';
 import Paper from '@material-ui/core/Paper';
 import {
   Chart,
-  ArgumentAxis,
-  ValueAxis,
   BarSeries,
   Title,
-  Legend,
+  ArgumentAxis,
+  ValueAxis,
 } from '@devexpress/dx-react-chart-material-ui';
 
-import { Stack, Animation } from '@devexpress/dx-react-chart';
+import { Animation } from '@devexpress/dx-react-chart';
 
 const data = [
-    {
-
-    }
-]
-const Root = props => (
-  <Legend.Root
-    {...props}
-    style={{
-      display: 'grid',
-      gridTemplateColumns: 'auto auto auto',
-      margin: 'auto',
-    }}
-  />
-);
-
+  { day: 'Sunday', duration: 60 },
+  { day: 'Monday', duration: 30 },
+  { day: 'Tuesday', duration: 30 },
+  { day: 'Wednesday', duration: 45 },
+  { day: 'Thursday', duration: 50},
+  { day: 'Friday', duration: 60 },
+  { day: 'Saturday', duration: 65 },
+];
 
 export default class WorkoutChart extends React.PureComponent {
   constructor(props) {
@@ -42,38 +34,20 @@ export default class WorkoutChart extends React.PureComponent {
 
     return (
       <Paper>
-        <Chart
+        <Chart width={450} height={200}
           data={chartData}
         >
           <ArgumentAxis />
-          <ValueAxis />
+          <ValueAxis max={7} />
 
           <BarSeries
-            name="Cardio"
-            valueField="maleyoung"
-            argumentField="state"
-          />
-          <BarSeries
-            name="Weight-Training"
-            valueField="malemiddle"
-            argumentField="state"
-          />
-          <BarSeries
-            name="Yoga"
-            valueField="maleolder"
-            argumentField="state"
+            valueField= "duration"
+            argumentField="day"
           />
           <Animation />
-          <Legend position="bottom" rootComponent={Root} />
-          <Title text="Workout Streak" />
-          <Stack
-            stacks={[
-              { series: ['Cardio', 'Weight-Training', 'Yoga'] },
-              { duration: []},
-            ]}
-          />
         </Chart>
       </Paper>
     );
   }
 }
+
