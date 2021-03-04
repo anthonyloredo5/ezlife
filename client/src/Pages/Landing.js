@@ -8,8 +8,6 @@ import ModalSignUp from "../components/modalSignUp";
 
 
  
-
-
 function Landing() {
   return (
     <div>

@@ -5,7 +5,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Copyright from './Copyright';
 
 
-function signUp() {
+function CreateAccount() {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [items, setItems] = useState({
         fullName: '',
@@ -137,4 +137,4 @@ function signUp() {
     );
 }
 
-export default signUp;
+export default CreateAccount;
