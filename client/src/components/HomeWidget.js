@@ -5,6 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import GoalChart from './Widgets/GoalPieChart';
 import WorkoutChart from './Widgets/WorkoutGraph';
+import ToDoList from './Widgets/Todo';
 
 function HomeWidget() {
     return (
@@ -14,7 +15,7 @@ function HomeWidget() {
                 <Paper style = {{height: 200, width: 200 }}/> Workout of the Day
             </Grid>
             <Grid item>
-                <Paper style = {{height: 200, width: 200 }}/> Top Todo's
+                <ToDoList/> Top Todo's
             </Grid> 
             <Grid item>
                 <Paper style = {{height: 200, width: 200 }}/> Timer
