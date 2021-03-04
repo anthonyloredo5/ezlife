@@ -1,6 +1,7 @@
 import React from "react";
 import Hero from "../components/Hero";
 import background from "../images/jumbo.png"
+import Quote from "./Quote"; 
 
 function Jumbotron() {
     return (
@@ -18,7 +19,9 @@ function Jumbotron() {
             
         }}>
             <h1 class="text-center">ezlife</h1>
-            <p class="lead text-center">affirmations will render here </p>
+            <br></br>
+            <br></br>
+            <Quote />
             </div>
         </Hero>
     

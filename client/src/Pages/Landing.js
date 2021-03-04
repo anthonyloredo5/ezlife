@@ -3,12 +3,11 @@ import Hero from "../components/Hero";
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
-import background from "../images/background1.png"
-import ModalStart from "../components/modal"; 
+import background from "../images/background1.png";
+import ModalSignUp from "../components/modalSignUp"; 
+
 
  
-
-
 function Landing() {
   return (
     <div>
@@ -24,7 +23,9 @@ function Landing() {
         <Row>
           <Col size="md-12">
             
-          <ModalStart />
+
+          <ModalSignUp />
+
 
           </Col>
         </Row>
