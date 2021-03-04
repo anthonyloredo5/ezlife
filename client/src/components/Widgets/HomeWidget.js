@@ -1,9 +1,8 @@
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
-import GoalChart from './Widgets/GoalPieChart';
-import WaterBottle from './Widgets/WaterBottleGraph';
-
+import GoalChart from './GoalPieChart';
+import WaterBottle from './WaterBottleGraph';
 
 function HomeWidget() {
     return (
