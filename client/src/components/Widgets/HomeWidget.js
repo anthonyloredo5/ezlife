@@ -1,10 +1,10 @@
-// import Container from '@material-ui/core/Container';
-
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
-import GoalChart from './Widgets/GoalPieChart';
-import WorkoutChart from './Widgets/WorkoutGraph';
+import GoalChart from './GoalPieChart';
+import WaterBottle from './WaterIntake/WaterBottleGraph';
+import WorkoutChart from './WorkoutGraph';
+
 
 function HomeWidget() {
     return (
@@ -25,13 +25,13 @@ function HomeWidget() {
         </Grid>
         <Grid container justify ="center"spacing = {3}>
             <Grid item> 
-                    Water Intake
+                    <WaterBottle/> Water Intake
                 </Grid>
                 <Grid item>
                     <GoalChart/> Goal Progress
                 </Grid> 
                 <Grid item>
-                    <WorkoutChart/> Workout Streak
+                    <WorkoutChart/>
                 </Grid>
             </Grid>
     </Box>
