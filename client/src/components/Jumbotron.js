@@ -1,5 +1,5 @@
 import React from "react";
-import Hero from "../components/Hero";
+
 import background from "../images/jumbo.png"
 import Quote from "./Quote"; 
 
@@ -10,23 +10,18 @@ function Jumbotron() {
     paddingTop: "0px",
     paddingBottom: "0px",
     marginBottom: "20px",
-    height: "500px",
-    opacity: "0.5",
-    
+    height: "190px",
+    overflow: "auto",
+    backgroundImage: `url(${background})`,
       }} >
-        <Hero  backgroundImage= {background}  > 
-        <div style={{
-            
-        }}>
-            <h1 class="text-center">ezlife</h1>
+         
+     
+    <div>
             <br></br>
             <br></br>
             <Quote />
             </div>
-        </Hero>
-    
-        
-    </div >
+    </div>
     )
 }
 
