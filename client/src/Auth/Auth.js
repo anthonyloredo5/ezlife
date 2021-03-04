@@ -22,31 +22,42 @@ const SignUp = () => {
     userName: '',
     email: '',
     password: ''
-});
+  });
 
-const handleChange = (e) => {
-  const { name, value } = e.target;
+  const handleChange = (e) => {
+    const { name, value } = e.target;
 
-  setItems({
+    setItems({
       ...items,
       [name]: value,
-  });
-}
+    });
+  }
 
-const handleSubmit = (e) => {
-  e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  const registeredUser = {
+    const registerNewUser = {
       fullName: items.fullName,
       userName: items.userName,
       email: items.email,
       password: items.password,
-  }
+    }
 
-  axios.post('http://localhost:5000/api/signup', registeredUser)
-      .then((response) => { console.log(response.data) })
-      .catch((err) => err.message);
-}
+    const registeredUser = {
+      email: items.email,
+      password: items.password,
+    }
+
+    if (isSignup) {
+      axios.post('http://localhost:5000/api/signup', registerNewUser)
+        .then((response) => { console.log(response.data) })
+        .catch((err) => err.message);
+    } else {
+      axios.post('http://localhost:5000/api/login', registeredUser)
+        .then((response) => { console.log(response.data); })
+        .catch((err) => err.message);
+    }
+  }
 
   const switchMode = () => {
     setIsSignup((prevIsSignup) => !prevIsSignup)
@@ -55,6 +66,15 @@ const handleSubmit = (e) => {
 
   const googleSuccess = async (res) => {
     console.log(res);
+    const result = res?.profile.Obj; //?. gives me undefined instead of an error
+    const token = res?.tokenId;
+
+    try {
+
+    } catch (error) {
+      console.log(error);
+    }
+
   }
 
   const googleFailure = (error) => {
@@ -75,33 +95,32 @@ const handleSubmit = (e) => {
             {
               isSignup && (
                 <>
-                    <Input name="fullName" label="Full Name" handleChange={handleChange} />
-                    <Input name="userName" label="Username" handleChange={handleChange} type="username" />
-                  
+                  <Input name="fullName" label="Full Name" handleChange={handleChange} />
+                  <Input name="userName" label="Username" handleChange={handleChange} type="username" />
+
                 </>
 
               )
             }
             <Input name="email" label="Email" handleChange={handleChange} type="email" />
             <Input name="password" label="Password" handleChange={handleChange} type={showPassword ? "text" : "password"} handleShowPassword={handleShowPassword} />
-            {isSignup && <Input name="confirmPassword" label="Repeat Password" handleChange={handleChange} type="password" />}
-            <Button type="submit" fullWidth variant="contained" color="primary" > 
-            {isSignup ? 'Sign Up' : 'Sign In'}
-          </Button>
-          <GoogleLogin 
-            clientId="159311272164-001m14bpa0un3clpoc60e26r838d9up6.apps.googleusercontent.com"
-            render = {(renderProps) => (
-              <Button color="primary" fullWidth onClick={renderProps.onClick} startIcon={<Icon />} variant="contained">
-                Google Sign In
-              </Button>
-            )}
-            onSuccess={googleSuccess}
-            onFailure={googleFailure}
-            cookiePolicy="single_host_origin"
-          />
+            <Button type="submit" fullWidth variant="contained" color="primary" >
+              {isSignup ? 'Sign Up' : 'Sign In'}
+            </Button>
+            <GoogleLogin
+              clientId="159311272164-001m14bpa0un3clpoc60e26r838d9up6.apps.googleusercontent.com"
+              render={(renderProps) => (
+                <Button color="primary" fullWidth onClick={renderProps.onClick} startIcon={<Icon />} variant="contained">
+                  Google Sign In
+                </Button>
+              )}
+              onSuccess={googleSuccess}
+              onFailure={googleFailure}
+              cookiePolicy="single_host_origin"
+            />
           </Grid>
-          
-          
+
+
           <Grid container justify="flex-end">
             <Grid item >
               <Button onClick={switchMode}>
