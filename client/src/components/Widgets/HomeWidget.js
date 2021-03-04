@@ -4,6 +4,7 @@ import Box from '@material-ui/core/Box';
 import GoalChart from './GoalPieChart';
 import WaterBottle from './WaterIntake/WaterBottleGraph';
 import WorkoutChart from './WorkoutGraph';
+import Todo from './Todo.js';
 
 
 function HomeWidget() {
@@ -14,7 +15,7 @@ function HomeWidget() {
                 <Paper style = {{height: 200, width: 200 }}/> Workout of the Day
             </Grid>
             <Grid item>
-                <Paper style = {{height: 200, width: 200 }}/> Top Todo's
+                <Todo/>
             </Grid> 
             <Grid item>
                 <Paper style = {{height: 200, width: 200 }}/> Timer
