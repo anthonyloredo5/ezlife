@@ -13,9 +13,6 @@ import ThemeContext from './Context.js'
 const { createContext, useContext, useState } = React;
 
 
-
-
-
 function App() {
 
   const [userState, setUserState ] = useState({
