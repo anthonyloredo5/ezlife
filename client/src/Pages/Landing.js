@@ -12,7 +12,6 @@ function Landing() {
   return (
     <div>
       <Hero backgroundImage= {background}> 
-        
       </Hero>
       <Container style={{ marginTop: 30 }}>
         <Row>

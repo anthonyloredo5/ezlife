@@ -21,13 +21,26 @@ const signUpTemplate = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    todo: {
+    firstTime: {
+        type: Boolean,
+        default: true
+    },
+    ToDos: {
         type: Boolean,
         default: false,
     },
-    firstTime: {
-        type: Boolean
-    }
+    Clock: {
+        type: Boolean,
+        default: false,
+    },
+    Fitness: {
+        type: Boolean,
+        default: false,
+    },
+    Goals: {
+        type: Boolean,
+        default: false,
+    },
 })
 
 const model = mongoose.model('myTable', signUpTemplate);

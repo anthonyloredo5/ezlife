@@ -20,9 +20,7 @@ const ModalSignUp = (props) => {
       <Modal isOpen={modal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle}>Create an account to simplify your life! </ModalHeader>
         <ModalBody>
-          {/* <CreateAccount  /> */}
           <Auth />
-          
         </ModalBody>
         {/* <ModalFooter> */}
           {/* <Button color="primary" onClick={toggle}>Select</Button>{' '} */}

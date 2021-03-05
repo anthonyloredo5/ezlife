@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import ThemeContext from '../Context.js'
-import {  useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -25,6 +25,8 @@ import StarsIcon from '@material-ui/icons/Stars';
 import ImportantDevicesIcon from '@material-ui/icons/ImportantDevices';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import Grid from '@material-ui/core/Grid'
+import { Button } from 'reactstrap';
 
 const drawerWidth = 240;
 
@@ -85,7 +87,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PersistentDrawerLeft() {
+export default function PersistentDrawerLeft(props) {
   const history = useHistory();
   const { createContext, useContext, useState } = React;
   const classes = useStyles();
@@ -136,6 +138,9 @@ export default function PersistentDrawerLeft() {
             </IconButton>
             ezlife
           </Typography>
+            <IconButton onClick={props.getStarted} edge='end' style={{ position: "absolute", right: 0, marginRight: "10px" }}>
+              Get Started
+        </IconButton>
         </Toolbar>
       </AppBar>
       <Drawer
