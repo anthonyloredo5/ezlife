@@ -140,10 +140,12 @@ export default function PersistentDrawerLeft() {
           </IconButton>
         </div>
         <Divider />
-        
-        <List>
+
+
+      
+        <List component="nav" aria-label="pages">
           {[{ text: 'Timer', url: "/timer", icon: <AccessAlarmIcon />}, { text:'To-do', url: "/todo", icon: <FormatListBulletedIcon/>}].map((item, index) => (
-            <Link to={item.url}>
+            <Link href={item.url}>
             <ListItem button key={item.text}>
               {/* <ListItemIcon>{index % 2 === 0 ? < AccessAlarmIcon/> : <FormatListBulletedIcon/>}</ListItemIcon> */}
               <ListItemIcon>{item.icon}</ListItemIcon>
@@ -152,9 +154,11 @@ export default function PersistentDrawerLeft() {
             </Link>
           ))}
         </List>
-        <List> 
+
+
+        <List component="nav" aria-label="pages2"> 
           {[{ text: 'Workouts', url: '/fitness', icon: <FitnessCenterIcon/>}, { text: 'Goals', url: '/goals', icon: <StarsIcon/>}].map((item,index) => (
-            <Link to={item.url}>
+            <Link href={item.url}>
             <ListItem button key= {item.text}>
               {/* <ListItemIcon>{index % 2 === 0 ? <FitnessCenterIcon/> : <StarsIcon/>  }</ListItemIcon> */}
               <ListItemIcon>{item.icon}</ListItemIcon>
@@ -164,9 +168,9 @@ export default function PersistentDrawerLeft() {
           ))}
         </List>
         <Divider />
-        <List>
+        <List component="nav" aria-label="pages3">
           {[{ text:'Screentime', url: '/screentime', icon: <ImportantDevicesIcon/>}, { text: 'Budget', url: '/budget', icon: <AttachMoneyIcon/>}].map((item, index) => (
-            <Link to={item.url}>
+            <Link href={item.url}>
             <ListItem button key={item.text}>
               {/* <ListItemIcon>{index % 2 === 0 ? <ImportantDevicesIcon/> : <AttachMoneyIcon />}</ListItemIcon> */}
               <ListItemIcon>{item.icon}</ListItemIcon>
