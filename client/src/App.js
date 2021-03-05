@@ -4,17 +4,12 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Wrapper from "./components/Wrapper";
 import Landing from './Pages/Landing';
 import Dash from "./Pages/Dash";
-
 import ThemeContext from './Context.js'
-
-
-const { createContext, useContext, useState } = React;
-
 import CreateAccount from './components/CreateAccount';
 import Login from './components/Login';
 import Timer from "./Pages/Timer"; 
 
-
+const { createContext, useContext, useState } = React;
 
 
 
@@ -47,7 +42,7 @@ function App() {
 
           <Route exact path="/signUp" component={CreateAccount} />
           <Route exact path="/Login" component={Login} />
-          <Route exact path="/timer" component={Timer} />
+          <Route path="/timer" component={Timer} />
 
 
         </Wrapper>
