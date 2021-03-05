@@ -14,8 +14,6 @@
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "echarts": "^5.0.2",
-    "echarts-for-react": "^3.0.1",
-    "echarts-liquidfill": "^3.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-google-login": "^5.2.2",

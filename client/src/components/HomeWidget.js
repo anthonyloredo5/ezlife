@@ -6,7 +6,7 @@ import Box from '@material-ui/core/Box';
 import GoalChart from './Widgets/GoalPieChart';
 import WorkoutChart from './Widgets/WorkoutGraph';
 import ToDoList from './Widgets/Todo';
-
+import Timer from './Widgets/Timer';
 
 
 
@@ -20,10 +20,10 @@ function HomeWidget() {
                 <Paper style = {{height: 200, width: 200 }}/> Workout of the Day
             </Grid>
             <Grid item>
-                <ToDoList/> Top Todo's
-            </Grid> 
+                <ToDoList/>
+            </Grid>
             <Grid item>
-                <Paper style = {{height: 200, width: 200 }}/> Timer
+                <Timer/>
             </Grid>
             <Grid item>
                 <Paper style = {{height: 200, width: 200 }}/> Goals

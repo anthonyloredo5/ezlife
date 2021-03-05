@@ -4,6 +4,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 
 
 function ToDoItem(props) {
+   
     const items = props.items;
     const listItems = items.map(item => {
         return <div className="list" key={item.key}>
@@ -23,7 +24,9 @@ function ToDoItem(props) {
     })
     return <div>
         {listItems}
+        
     </div>;
+    
 }
 
 export default ToDoItem;

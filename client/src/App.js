@@ -13,8 +13,6 @@ import Timer from "./Pages/Timer";
 
 const { createContext, useContext, useState } = React;
 
-
-
 function App() {
 
   const [userState, setUserState ] = useState({
