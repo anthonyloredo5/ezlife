@@ -1,5 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
+import ThemeContext from '../Context.js'
+import {  useHistory } from 'react-router-dom';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -84,9 +86,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function PersistentDrawerLeft() {
+  const history = useHistory();
+  const { createContext, useContext, useState } = React;
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+
+  const stateFromApp = useContext(ThemeContext)
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -95,6 +101,13 @@ export default function PersistentDrawerLeft() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  const handleClick = (e) => {
+    e.preventDefault();
+
+    stateFromApp.updateUser(null);
+    history.push("/");
+  }
 
   return (
     <div className={classes.root}>
@@ -116,10 +129,10 @@ export default function PersistentDrawerLeft() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            <IconButton 
-            aria-label="list"
-           >
-           <FavoriteBorderIcon  style={{ color: "#fdd835" }}/>
+            <IconButton
+              aria-label="list"
+            >
+              <FavoriteBorderIcon style={{ color: "#fdd835" }} />
             </IconButton>
             ezlife
           </Typography>
@@ -142,43 +155,47 @@ export default function PersistentDrawerLeft() {
         <Divider />
 
 
-      
+
         <List component="nav" aria-label="pages">
-          {[{ text: 'Timer', url: "/timer", icon: <AccessAlarmIcon />}, { text:'To-do', url: "/todo", icon: <FormatListBulletedIcon/>}].map((item, index) => (
+          {[{ text: 'Timer', url: "/timer", icon: <AccessAlarmIcon /> }, { text: 'To-do', url: "/todo", icon: <FormatListBulletedIcon /> }].map((item, index) => (
             <Link href={item.url}>
-            <ListItem button key={item.text}>
-              {/* <ListItemIcon>{index % 2 === 0 ? < AccessAlarmIcon/> : <FormatListBulletedIcon/>}</ListItemIcon> */}
-              <ListItemIcon>{item.icon}</ListItemIcon>
-              <ListItemText primary={item.text} />
-            </ListItem>
+              <ListItem button key={item.text}>
+                {/* <ListItemIcon>{index % 2 === 0 ? < AccessAlarmIcon/> : <FormatListBulletedIcon/>}</ListItemIcon> */}
+                <ListItemIcon>{item.icon}</ListItemIcon>
+                <ListItemText primary={item.text} />
+              </ListItem>
             </Link>
           ))}
         </List>
 
 
-        <List component="nav" aria-label="pages2"> 
-          {[{ text: 'Workouts', url: '/fitness', icon: <FitnessCenterIcon/>}, { text: 'Goals', url: '/goals', icon: <StarsIcon/>}].map((item,index) => (
+        <List component="nav" aria-label="pages2">
+          {[{ text: 'Workouts', url: '/fitness', icon: <FitnessCenterIcon /> }, { text: 'Goals', url: '/goals', icon: <StarsIcon /> }].map((item, index) => (
             <Link href={item.url}>
-            <ListItem button key= {item.text}>
-              {/* <ListItemIcon>{index % 2 === 0 ? <FitnessCenterIcon/> : <StarsIcon/>  }</ListItemIcon> */}
-              <ListItemIcon>{item.icon}</ListItemIcon>
-              <ListItemText primary={item.text}/>
-            </ListItem>
+              <ListItem button key={item.text}>
+                {/* <ListItemIcon>{index % 2 === 0 ? <FitnessCenterIcon/> : <StarsIcon/>  }</ListItemIcon> */}
+                <ListItemIcon>{item.icon}</ListItemIcon>
+                <ListItemText primary={item.text} />
+              </ListItem>
             </Link>
           ))}
         </List>
         <Divider />
         <List component="nav" aria-label="pages3">
-          {[{ text:'Screentime', url: '/screentime', icon: <ImportantDevicesIcon/>}, { text: 'Budget', url: '/budget', icon: <AttachMoneyIcon/>}].map((item, index) => (
+          {[{ text: 'Screentime', url: '/screentime', icon: <ImportantDevicesIcon /> }, { text: 'Budget', url: '/budget', icon: <AttachMoneyIcon /> }].map((item, index) => (
             <Link href={item.url}>
-            <ListItem button key={item.text}>
-              {/* <ListItemIcon>{index % 2 === 0 ? <ImportantDevicesIcon/> : <AttachMoneyIcon />}</ListItemIcon> */}
-              <ListItemIcon>{item.icon}</ListItemIcon>
-              <ListItemText primary={item.text} />
-            </ListItem>
+              <ListItem button key={item.text}>
+                {/* <ListItemIcon>{index % 2 === 0 ? <ImportantDevicesIcon/> : <AttachMoneyIcon />}</ListItemIcon> */}
+                <ListItemIcon>{item.icon}</ListItemIcon>
+                <ListItemText primary={item.text} />
+              </ListItem>
             </Link>
           ))}
+          <ListItem button onClick={handleClick} styles={"position: fixed bottom: 0 textAlign: center paddingBottom: 1"}>
+            <Typography>Sign Out</Typography>
+          </ListItem>
         </List>
+
       </Drawer>
       <main
         className={clsx(classes.content, {
@@ -186,9 +203,9 @@ export default function PersistentDrawerLeft() {
         })}
       >
         <div className={classes.drawerHeader} />
-     
+
       </main>
-    </div>
+    </div >
   );
 }
 
