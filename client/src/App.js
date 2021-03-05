@@ -9,7 +9,7 @@ import ThemeContext from './Context.js'
 import CreateAccount from './components/CreateAccount';
 import Login from './components/Login';
 import Timer from "./Pages/Timer"; 
-
+import UserWidgetSelect from "./components/UserWidgetSelect/UserWidgetSelect";
 
 const { createContext, useContext, useState } = React;
 
@@ -43,6 +43,7 @@ function App() {
           <Route exact path="/signUp" component={CreateAccount} />
           <Route exact path="/Login" component={Login} />
           <Route path="/timer" component={Timer} />
+          <Route path="/UserWidgetSelect" component={UserWidgetSelect} />
 
 
         </Wrapper>

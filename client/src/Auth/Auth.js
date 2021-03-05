@@ -86,8 +86,8 @@ const SignUp = () => {
 
   const googleSuccess = async (res) => {
     console.log(res);
-    const result = res?.profile.Obj; //?. gives me undefined instead of an error
-    const token = res?.tokenId;
+    // const result = res?.profile.Obj; //?. gives me undefined instead of an error
+    // const token = res?.tokenId;
 
     try {
 
