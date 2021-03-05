@@ -9,11 +9,14 @@ import axios from 'axios';
 
 import Icon from './icon';
 import Input from './Input';
+import useStyles from './styles';
 
 const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' };
 
 const SignUp = () => {
   const history = useHistory();
+  const classes = useStyles();
+
   const { createContext, useContext, useState } = React;
 
     const stateFromApp = useContext(ThemeContext)
@@ -102,12 +105,12 @@ const SignUp = () => {
 
   return (
     <Container component="main" maxWidth="xs">
-      <Paper elevation={3}>
-        <Avatar>
+      <Paper className={classes.paper} elevation={3}>
+        <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
         <Typography variant="h5">{isSignup ? 'Sign Up' : 'Sign In'}</Typography>
-        <form onSubmit={handleSubmit}>
+        <form className={classes.form} onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             {
               isSignup && (
@@ -121,13 +124,13 @@ const SignUp = () => {
             }
             <Input name="email" label="Email" handleChange={handleChange} type="email" />
             <Input name="password" label="Password" handleChange={handleChange} type={showPassword ? "text" : "password"} handleShowPassword={handleShowPassword} />
-            <Button type="submit" fullWidth variant="contained" color="primary" >
+            <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
               {isSignup ? 'Sign Up' : 'Sign In'}
             </Button>
-            <GoogleLogin
+            <GoogleLogin 
               clientId="159311272164-001m14bpa0un3clpoc60e26r838d9up6.apps.googleusercontent.com"
               render={(renderProps) => (
-                <Button color="primary" fullWidth onClick={renderProps.onClick} startIcon={<Icon />} variant="contained">
+                <Button className={classes.googleButton} color="primary" fullWidth onClick={renderProps.onClick} startIcon={<Icon />} variant="contained">
                   Google Sign In
                 </Button>
               )}
