@@ -28,23 +28,24 @@ router.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
     try {
-        const existingUser = signUpTemplate.findOne({ email });
-        console.log(existingUser);
-        if (!existingUser) return res.status(404).json({ message: "User doesn't exists" });
+        signUpTemplate.findOne({ email }).then( async function (data) {
+            const existingUser = data;
 
-        const isPasswordCorrect = await bcrypt.compare(password, existingUser.password);
-        if (!isPasswordCorrect) return res.status(400).json({ message: "Invalid Password" });
+            if (!existingUser) return res.status(404).json({ message: "User doesn't exists" });
 
-        const token = jwt.sign({
-            email: existingUser.email,
-            id: existingUser._id
-        }, 'test', { expiresIn: "1h" });
+            const isPasswordCorrect = await bcrypt.compare(password, existingUser.password);
+            if (!isPasswordCorrect) return res.status(400).json({ message: "Invalid Password" });
 
-        res.status(200).json({ result: existingUser, token});
+            const token = jwt.sign({
+                email: existingUser.email,
+                id: existingUser._id
+            }, 'test', { expiresIn: "1h" });
+
+            res.status(200).json({ result: existingUser, token });
+        })
     } catch (error) {
-        res.status(500).json({ message: "Something went wrong."});
+        res.status(500).json({ message: "Something went wrong." });
     }
-
 });
 
 export default router;

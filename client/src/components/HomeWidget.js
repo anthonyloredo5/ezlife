@@ -1,5 +1,5 @@
 // import Container from '@material-ui/core/Container';
-
+import React from "react";
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
@@ -7,7 +7,12 @@ import GoalChart from './Widgets/GoalPieChart';
 import WorkoutChart from './Widgets/WorkoutGraph';
 import ToDoList from './Widgets/Todo';
 
+
+
+
 function HomeWidget() {
+   
+
     return (
     <Box className = 'widget_box'>
         <Grid container justify ="center"spacing = {3}>
