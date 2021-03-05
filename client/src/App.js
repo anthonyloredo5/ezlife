@@ -4,10 +4,12 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Wrapper from "./components/Wrapper";
 import Landing from './Pages/Landing';
 import Dash from "./Pages/Dash";
+
 import ThemeContext from './Context.js'
 import CreateAccount from './components/CreateAccount';
 import Login from './components/Login';
 import Timer from "./Pages/Timer"; 
+
 
 const { createContext, useContext, useState } = React;
 
