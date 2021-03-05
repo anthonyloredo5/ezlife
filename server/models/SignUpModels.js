@@ -20,6 +20,13 @@ const signUpTemplate = new mongoose.Schema({
     date:{
         type: Date,
         default: Date.now
+    },
+    todo: {
+        type: Boolean,
+        default: false,
+    },
+    firstTime: {
+        type: Boolean
     }
 })
 
