@@ -5,7 +5,7 @@ import GoalChart from './GoalPieChart';
 import WaterBottle from './WaterIntake/WaterBottleGraph';
 import WorkoutChart from './WorkoutGraph';
 import Todo from './Todo.js';
-
+import './Todo.css';
 
 function HomeWidget() {
     return (
@@ -14,7 +14,7 @@ function HomeWidget() {
             <Grid item> 
                 <Paper style = {{height: 200, width: 200 }}/> Workout of the Day
             </Grid>
-            <Grid item>
+            <Grid item className="gridT">
                 <Todo/>
             </Grid> 
             <Grid item>
