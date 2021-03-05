@@ -5,7 +5,7 @@ import Quote from "./Quote";
 
 function Jumbotron() {
     return (
-    <div class="jumbotron jumbotron-fluid container justify ='center' "  style={{
+    <div className="jumbotron jumbotron-fluid container justify ='center' "  style={{
     width: "1000px",
     paddingTop: "0px",
     paddingBottom: "0px",
@@ -13,6 +13,7 @@ function Jumbotron() {
     height: "190px",
     overflow: "auto",
     backgroundImage: `url(${background})`,
+    boxShadow: "0 15px 20px rgba(0,0,0,0.30), 0 10px 12px rgba(0,0,0,0.22)",
       }} >
          
      
