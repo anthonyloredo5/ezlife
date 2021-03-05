@@ -14,7 +14,7 @@ export default class GoalChart extends PureComponent {
   render() {
     return (
       <PieChart width={200} height={200} onMouseEnter={this.onPieEnter}>
-        <Pie
+        <Pie 
           data={data}
           cx={100}
           cy={100}

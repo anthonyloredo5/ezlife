@@ -1,6 +1,7 @@
 import React from 'react';
 import ToDoItem from './ToDoItem';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
+import "./Todo.css";
 
 class ToDoList extends React.Component {
     constructor(props) {
@@ -48,15 +49,17 @@ class ToDoList extends React.Component {
     }    
       render(){
         return (
+
           <div className="ToDoList">
             <header>
               <form id="to-do-form" onSubmit={this.addItem}>
-                <input 
+                <input className
                   type="text" 
-                  placeholder="Enter task" 
+                  placeholder="To-Do's" 
                   value={this.state.currentItem.text} 
                   name="toDo" 
                   onChange={this.handleInput}
+                 
                 />
                 <AddCircleOutlineIcon 
                 type="submit"
