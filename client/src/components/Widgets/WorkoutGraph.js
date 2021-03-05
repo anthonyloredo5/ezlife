@@ -32,7 +32,7 @@ export default class WorkoutChart extends React.PureComponent {
     const { data: chartData } = this.state;
 
     return (
-      <Paper>
+      <Paper style={{boxShadow: "0 15px 20px rgba(0,0,0,0.30), 0 10px 12px rgba(0,0,0,0.22)"}}>
         <Chart width={450} height={200}
           data={chartData}
         >

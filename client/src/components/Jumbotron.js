@@ -13,6 +13,7 @@ function Jumbotron() {
     height: "190px",
     overflow: "auto",
     backgroundImage: `url(${background})`,
+    boxShadow: "0 15px 20px rgba(0,0,0,0.30), 0 10px 12px rgba(0,0,0,0.22)",
       }} >
          
      

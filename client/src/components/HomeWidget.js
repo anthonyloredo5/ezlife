@@ -1,5 +1,6 @@
 // import Container from '@material-ui/core/Container';
 import React from "react";
+import GridList from '@material-ui/core/GridList';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
@@ -19,9 +20,19 @@ function HomeWidget() {
             <Grid item> 
                 <Paper style = {{height: 200, width: 200 }}/> Workout of the Day
             </Grid>
-            <Grid item>
+            <GridList item style = {{
+                height:250, 
+                width:230,
+                padding: "10px",
+                overflow: "hidden",
+                backgroundColor: "orange",
+                marginBottom: "10px",
+                marginTop: "10px",
+                boxShadow: "0 15px 20px rgba(0,0,0,0.30), 0 10px 12px rgba(0,0,0,0.22)",
+
+            }} >
                 <ToDoList/>
-            </Grid>
+            </GridList>
             <Grid item>
                 <Timer/>
             </Grid>
