@@ -57,7 +57,12 @@ const SignUp = () => {
 
     if (isSignup) {
       axios.post('http://localhost:5000/api/signup', registerNewUser)
-        .then((response) => { console.log(response.data) })
+        .then((response) => { 
+          console.log(response.data) 
+          
+          stateFromApp.updateUser(response.data)
+          history.push("/dash");
+        })
         .catch((err) => err.message);
     } else {
       axios.post('http://localhost:5000/api/login', registeredUser)
