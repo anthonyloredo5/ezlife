@@ -44,7 +44,7 @@ function UserWidgetSelect() {
         axios.post('http://localhost:5000/api/update', updateUser)
         .then((response) => { 
           console.log(response.data); 
-
+          stateFromApp.updateUser(response.data)
         })
         .catch((err) => err.message);
     }
