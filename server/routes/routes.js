@@ -16,19 +16,26 @@ router.post('/signup', async (req, res) => {
         password: securePassword,
     })
     signedUpUser.save()
-        .then((data) => {
-            res.json(data);
+        .then(async function (err, data) {
+            var existingUser = data;
+            signUpTemplate.findOne({ email: req.body.email })
+                .then(async function (data) {
+                    existingUser = data;
+
+                    res.status(200).json({ result: existingUser });
+                })
         })
         .catch((err) => {
             console.log(err.message);
         });
+
 });
 
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
     try {
-        signUpTemplate.findOne({ email }).then( async function (data) {
+        signUpTemplate.findOne({ email }).then(async function (data) {
             const existingUser = data;
 
             if (!existingUser) return res.status(404).json({ message: "User doesn't exists" });
@@ -51,16 +58,16 @@ router.post('/login', async (req, res) => {
 router.post('/update', async (req, res) => {
 
     try {
-        signUpTemplate.updateOne({ email:  req.body.email }, { $set: { ToDos: req.body.ToDos, Clock: req.body.Clock, Fitness: req.body.Fitness, Goals: req.body.Goals, firstTime: false } })
-        .then( async function (err, data) {
-            var existingUser = data;
-            signUpTemplate.findOne({ email:  req.body.email })
-            .then(async function (data) {
-                existingUser = data;
+        signUpTemplate.updateOne({ email: req.body.email }, { $set: { ToDos: req.body.ToDos, Clock: req.body.Clock, Fitness: req.body.Fitness, Goals: req.body.Goals, firstTime: false } })
+            .then(async function (err, data) {
+                var existingUser = data;
+                signUpTemplate.findOne({ email: req.body.email })
+                    .then(async function (data) {
+                        existingUser = data;
 
-                res.status(200).json({ result: existingUser });
+                        res.status(200).json({ result: existingUser });
+                    })
             })
-        })
     } catch (error) {
         res.status(500).json({ message: "Something went wrong." });
     }
