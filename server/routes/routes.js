@@ -48,4 +48,22 @@ router.post('/login', async (req, res) => {
     }
 });
 
+router.post('/update', async (req, res) => {
+
+    try {
+        signUpTemplate.updateOne({ email:  req.body.email }, { $set: { ToDos: req.body.ToDos, Clock: req.body.Clock, Fitness: req.body.Fitness, Goals: req.body.Goals, firstTime: false } })
+        .then( async function (err, data) {
+            var existingUser = data;
+            signUpTemplate.findOne({ email:  req.body.email })
+            .then(async function (data) {
+                existingUser = data;
+
+                res.status(200).json({ result: existingUser });
+            })
+        })
+    } catch (error) {
+        res.status(500).json({ message: "Something went wrong." });
+    }
+});
+
 export default router;

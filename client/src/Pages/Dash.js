@@ -14,7 +14,7 @@ function Dash() {
     const [modal, setModal] = useState(false);
 
     const stateFromApp = useContext(ThemeContext)
-    const firstTime = stateFromApp.userState.result.firstTime;
+   // const firstTime = stateFromApp.userState.result.firstTime;
     console.log('THIS SHOUDL B STATE FROM APP in the home widget', stateFromApp);
     
     const getStarted = (e) => {

@@ -7,6 +7,8 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import Checkbox from '@material-ui/core/Checkbox';
 import useStyles from './styles.js';
+import { Button } from '@material-ui/core';
+import axios from 'axios';
 
 function UserWidgetSelect() {
     const classes = useStyles();
@@ -19,6 +21,25 @@ function UserWidgetSelect() {
         Fitness: false,
         Goals: false
     });
+    
+    const handleClick = () => {
+        const updateUser = {
+            email:'log@log.com',
+            ToDos: true,
+            Clock: true,
+            Fitness: true,
+            Goals: true
+        }
+
+        axios.post('http://localhost:5000/api/update', updateUser)
+        .then((response) => { 
+          console.log(response.data); 
+
+        //   stateFromApp.updateUser(response.data)
+        //   history.push("/dash");
+        })
+        .catch((err) => err.message);
+    }
 
     const handleChange = (event) => {
 
@@ -27,7 +48,6 @@ function UserWidgetSelect() {
 
     const { ToDos, Clock, Fitness, Goals } = state;
     const error = [ ToDos, Clock, Fitness, Goals ].filter((v) => v.length !== 2);
-
 
     return (
         <div className={classes.root}>
@@ -51,6 +71,7 @@ function UserWidgetSelect() {
                         label="Goals"
                     />
                 </FormGroup>
+                <Button onClick={handleClick}>Submit</Button>
                 <FormHelperText>{ifError ? "You need to select at least two" : ""}</FormHelperText>
             </FormControl>
         </div>
