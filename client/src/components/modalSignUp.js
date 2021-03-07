@@ -16,9 +16,9 @@ const ModalSignUp = (props) => {
 
   return (
     <div>
-      <Button color="danger" onClick={toggle}>Get started!</Button>
+      <Button color="warning" onClick={toggle}>Get started!</Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Create an account to simplify your life! </ModalHeader>
+        <ModalHeader toggle={toggle} style={{backgroundColor: "#ffeb3b"}}>Create an account to simplify your life! </ModalHeader>
         <ModalBody>
           <Auth />
         </ModalBody>
