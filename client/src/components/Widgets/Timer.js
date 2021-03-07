@@ -1,7 +1,7 @@
 import React from 'react';
 
 class Timer extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props)
     this.state = {
       time: 0,
@@ -20,16 +20,21 @@ class Timer extends React.Component {
     })
     this.timer = setInterval(() => this.setState({
       time: Date.now() - this.state.start
-    }), 1);
+    }), 10);
   }
   stopTimer() {
-    this.setState({isOn: false})
+    this.setState({ isOn: false })
     clearInterval(this.timer)
   }
   resetTimer() {
-    this.setState({time: 0, isOn: false})
+    this.setState({ time: 0, isOn: false })
   }
   render() {
+    const { time } = this.state;
+    let centiseconds = ("0" + (Math.floor(time / 10) % 100)).slice(-2);
+    let seconds = ("0" + (Math.floor(time / 1000) % 60)).slice(-2);
+    let minutes = ("0" + (Math.floor(time / 60000) % 60)).slice(-2);
+    let hours = ("0" + Math.floor(time / 3600000)).slice(-2);
     let start = (this.state.time === 0) ?
       <button onClick={this.startTimer}>start</button> :
       null
@@ -42,9 +47,12 @@ class Timer extends React.Component {
     let reset = (this.state.time === 0 || this.state.isOn) ?
       null :
       <button onClick={this.resetTimer}>reset</button>
-    return(
+    return (
       <div>
-        <h3>timer: {(this.state.time)}</h3>
+        <h3>timer:</h3>
+        <div className="Stopwatch-display">
+          {hours} : {minutes} : {seconds} : {centiseconds}
+        </div>
         {start}
         {resume}
         {stop}
