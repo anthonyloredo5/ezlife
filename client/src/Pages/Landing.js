@@ -12,13 +12,15 @@ function Landing() {
   return (
     <div>
       <Hero backgroundImage= {background}> 
+        
       </Hero>
-      <Container style={{ marginTop: 30 }}>
-        <Row>
+      <div >
+      <Container style={{ marginTop: 20, textAlign: "center",}}>
+        {/* <Row>
           <Col size="md-12">
             <h1>Welcome!</h1>
           </Col>
-        </Row>
+        </Row> */}
         <Row>
           <Col size="md-12">
             
@@ -29,7 +31,7 @@ function Landing() {
           </Col>
         </Row>
       </Container>
-    
+    </div>
     </div>
   );
 }
