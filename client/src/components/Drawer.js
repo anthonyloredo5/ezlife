@@ -94,7 +94,11 @@ export default function PersistentDrawerLeft(props) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
-  const stateFromApp = useContext(ThemeContext)
+  const stateFromApp = useContext(ThemeContext);
+  const Clock = stateFromApp.userState.result.Clock;
+  const ToDos = stateFromApp.userState.result.ToDos;
+  const Fitness = stateFromApp.userState.result.Fitness;
+  const Goals = stateFromApp.userState.result.Goals;
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -160,9 +164,9 @@ export default function PersistentDrawerLeft(props) {
         <Divider />
 
 
-
-        <List component="nav" aria-label="pages">
-          {[{ text: 'Timer', url: "/timer", icon: <AccessAlarmIcon /> }, { text: 'To-do', url: "/todo", icon: <FormatListBulletedIcon /> }].map((item, index) => (
+        
+       {Clock ? (<List component="nav" aria-label="pages">
+          {[{ text: 'Timer', url: "/timer", icon: <AccessAlarmIcon /> }, ].map((item, index) => (
             <Link href={item.url}>
               <ListItem button key={item.text}>
                 {/* <ListItemIcon>{index % 2 === 0 ? < AccessAlarmIcon/> : <FormatListBulletedIcon/>}</ListItemIcon> */}
@@ -171,11 +175,23 @@ export default function PersistentDrawerLeft(props) {
               </ListItem>
             </Link>
           ))}
-        </List>
+        </List>) : (null)} 
+
+        {ToDos ? (<List component="nav" aria-label="pages">
+          {[{ text: 'To-do', url: "/todo", icon: <FormatListBulletedIcon /> }, ].map((item, index) => (
+            <Link href={item.url}>
+              <ListItem button key={item.text}>
+                {/* <ListItemIcon>{index % 2 === 0 ? < AccessAlarmIcon/> : <FormatListBulletedIcon/>}</ListItemIcon> */}
+                <ListItemIcon>{item.icon}</ListItemIcon>
+                <ListItemText primary={item.text} />
+              </ListItem>
+            </Link>
+          ))}
+        </List>) : (null)}
 
 
-        <List component="nav" aria-label="pages2">
-          {[{ text: 'Workouts', url: '/fitness', icon: <FitnessCenterIcon /> }, { text: 'Goals', url: '/goals', icon: <StarsIcon /> }].map((item, index) => (
+        {Fitness ? (<List component="nav" aria-label="pages2">
+          {[{ text: 'Workouts', url: '/fitness', icon: <FitnessCenterIcon /> }, ].map((item, index) => (
             <Link href={item.url}>
               <ListItem button key={item.text}>
                 {/* <ListItemIcon>{index % 2 === 0 ? <FitnessCenterIcon/> : <StarsIcon/>  }</ListItemIcon> */}
@@ -184,10 +200,37 @@ export default function PersistentDrawerLeft(props) {
               </ListItem>
             </Link>
           ))}
-        </List>
+        </List>) : (null)}
+
+        {Goals ? (<List component="nav" aria-label="pages2">
+          {[ { text: 'Goals', url: '/goals', icon: <StarsIcon /> }].map((item, index) => (
+            <Link href={item.url}>
+              <ListItem button key={item.text}>
+                {/* <ListItemIcon>{index % 2 === 0 ? <FitnessCenterIcon/> : <StarsIcon/>  }</ListItemIcon> */}
+                <ListItemIcon>{item.icon}</ListItemIcon>
+                <ListItemText primary={item.text} />
+              </ListItem>
+            </Link>
+          ))}
+        </List>) : (null)}
+
         <Divider />
+
         <List component="nav" aria-label="pages3">
-          {[{ text: 'Screentime', url: '/screentime', icon: <ImportantDevicesIcon /> }, { text: 'Budget', url: '/budget', icon: <AttachMoneyIcon /> }].map((item, index) => (
+          {[{ text: 'Screentime', url: '/screentime', icon: <ImportantDevicesIcon /> }].map((item, index) => (
+            <Link href={item.url}>
+              <ListItem button key={item.text}>
+                {/* <ListItemIcon>{index % 2 === 0 ? <ImportantDevicesIcon/> : <AttachMoneyIcon />}</ListItemIcon> */}
+                <ListItemIcon>{item.icon}</ListItemIcon>
+                <ListItemText primary={item.text} />
+              </ListItem>
+            </Link>
+          ))}
+        </List>
+
+
+        <List component="nav" aria-label="pages3">
+          {[{ text: 'Budget', url: '/budget', icon: <AttachMoneyIcon /> }].map((item, index) => (
             <Link href={item.url}>
               <ListItem button key={item.text}>
                 {/* <ListItemIcon>{index % 2 === 0 ? <ImportantDevicesIcon/> : <AttachMoneyIcon />}</ListItemIcon> */}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import CreateAccount from "./CreateAccount";
 import UserWidgetSelect from './UserWidgetSelect/UserWidgetSelect';
@@ -7,12 +7,23 @@ import UserWidgetSelect from './UserWidgetSelect/UserWidgetSelect';
 const ModalWidget = (props) => {
     console.log(props, "PROPS IN THE MODAL WIDGEST!!");
 
+    const [open, setOpen] = useState(props.modal);
+
+
+    const handleOpen = () => {
+      setOpen(true);
+    };
+  
+    const handleClose = () => {
+      setOpen(false);
+    };
+
     return (
-        <Modal isOpen={props.modal} style={{
+        <Modal isOpen={props.modal} onClose={handleClose} style={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            top: '25%'
+            top: '25%',
         }}>
             <ModalBody>
                 <UserWidgetSelect />

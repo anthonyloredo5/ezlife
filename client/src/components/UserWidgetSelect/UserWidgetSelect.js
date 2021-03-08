@@ -14,7 +14,7 @@ import ThemeContext from '../../Context';
 function UserWidgetSelect() {
     const classes = useStyles();
     const { createContext, useContext, useState } = React;
-    
+
     const [ifError, setIfError] = useState(false);
 
     const stateFromApp = useContext(ThemeContext)
@@ -23,15 +23,14 @@ function UserWidgetSelect() {
 
     const [state, setState] = React.useState({
         //list of selecteable widgets
-        ToDos: false,
-        Clock: false,
-        Fitness: false,
-        Goals: false
+        ToDos: stateFromApp.userState.result.ToDos,
+        Clock: stateFromApp.userState.result.Clock,
+        Fitness: stateFromApp.userState.result.Fitness,
+        Goals: stateFromApp.userState.result.Goals
     });
-    
+
     const handleClick = (e) => {
         e.preventDefault();
-
 
         const updateUser = {
             email: stateFromApp.userState.result.email,
@@ -42,11 +41,11 @@ function UserWidgetSelect() {
         }
 
         axios.post('http://localhost:5000/api/update', updateUser)
-        .then((response) => { 
-          console.log(response.data); 
-          stateFromApp.updateUser(response.data)
-        })
-        .catch((err) => err.message);
+            .then((response) => {
+                console.log(response.data);
+                stateFromApp.updateUser(response.data)
+            })
+            .catch((err) => err.message);
     }
 
     const handleChange = (event) => {
@@ -55,7 +54,7 @@ function UserWidgetSelect() {
     };
 
     const { ToDos, Clock, Fitness, Goals } = state;
-    const error = [ ToDos, Clock, Fitness, Goals ].filter((v) => v.length !== 2);
+    const error = [ToDos, Clock, Fitness, Goals].filter((v) => v.length !== 2);
 
     return (
         <div className={classes.root}>
