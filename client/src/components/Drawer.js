@@ -138,7 +138,10 @@ export default function PersistentDrawerLeft(props) {
             <IconButton
               aria-label="list"
             >
-              <FavoriteBorderIcon style={{ color: "#fdd835" }} />
+              <Link href="/dash">
+              <FavoriteBorderIcon style={{ color: "#fdd835" }} 
+              /></Link>
+              
             </IconButton>
             ezlife
           </Typography>
