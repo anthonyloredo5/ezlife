@@ -6,6 +6,8 @@
     "@devexpress/dx-react-chart": "^2.7.4",
     "@devexpress/dx-react-chart-material-ui": "^2.7.4",
     "@devexpress/dx-react-core": "^2.7.4",
+    "@fullcalendar/daygrid": "^5.5.0",
+    "@fullcalendar/react": "^5.5.0",
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
     "@testing-library/jest-dom": "^5.11.4",
