@@ -73,4 +73,17 @@ router.post('/update', async (req, res) => {
     }
 });
 
+router.post('/get', (req, res) => {
+    try {
+        signUpTemplate.findOne({ email: req.body.email })
+            .then(async function (data) {
+                var existingUser = data;
+
+                res.status(200).json({ result: existingUser });
+            }).catch((err) => console.log(err.message))
+    } catch (error) {
+        res.status(500).json({ message: "Something went wrong." });
+    }
+});
+
 export default router;

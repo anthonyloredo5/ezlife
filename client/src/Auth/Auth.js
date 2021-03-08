@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Avatar, Button, Paper, Grid, Typography, Container, TextField } from '@material-ui/core';
-import {  useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import ThemeContext from '../Context.js'
@@ -11,7 +11,6 @@ import Icon from './icon';
 import Input from './Input';
 import useStyles from './styles';
 
-const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' };
 
 const SignUp = () => {
   const history = useHistory();
@@ -19,10 +18,10 @@ const SignUp = () => {
 
   const { createContext, useContext, useState } = React;
 
-    const stateFromApp = useContext(ThemeContext)
-    console.log('THIS SHOUDL B STATE FROM APP in the home widget', stateFromApp)
+  const stateFromApp = useContext(ThemeContext)
+  console.log('THIS SHOUDL B STATE FROM APP in the home widget', stateFromApp)
 
-  const [form, setForm] = useState(initialState);
+
   const [isSignup, setIsSignup] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword);
@@ -60,17 +59,17 @@ const SignUp = () => {
 
     if (isSignup) {
       axios.post('http://localhost:5000/api/signup', registerNewUser)
-        .then((response) => { 
-          console.log(response.data) 
-          
+        .then((response) => {
+          console.log(response.data)
+
           stateFromApp.updateUser(response.data)
           history.push("/dash");
         })
         .catch((err) => err.message);
     } else {
       axios.post('http://localhost:5000/api/login', registeredUser)
-        .then((response) => { 
-          console.log(response.data); 
+        .then((response) => {
+          console.log(response.data);
 
           stateFromApp.updateUser(response.data)
           history.push("/dash");
@@ -127,7 +126,7 @@ const SignUp = () => {
             <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
               {isSignup ? 'Sign Up' : 'Sign In'}
             </Button>
-            <GoogleLogin 
+            <GoogleLogin
               clientId="159311272164-001m14bpa0un3clpoc60e26r838d9up6.apps.googleusercontent.com"
               render={(renderProps) => (
                 <Button className={classes.googleButton} color="primary" fullWidth onClick={renderProps.onClick} startIcon={<Icon />} variant="contained">
