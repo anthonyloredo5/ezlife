@@ -7,12 +7,18 @@ import UserWidgetSelect from './UserWidgetSelect/UserWidgetSelect';
 const ModalWidget = (props) => {
     console.log(props, "PROPS IN THE MODAL WIDGEST!!");
 
+    const [isOpen, setOpen] = useState(props.modal);
+
+    const handleClose = () => {
+        setOpen(!props.modal)
+    }
+
     return (
-        <Modal isOpen={props.modal} style={{
+        <Modal isOpen={props.modal} onClose={handleClose} style={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            top: '25%'
+            top: '25%',
         }}>
             <ModalBody>
                 <UserWidgetSelect />
