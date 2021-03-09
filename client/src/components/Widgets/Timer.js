@@ -1,5 +1,8 @@
 import React from 'react';
-
+import PlayArrowIcon from '@material-ui/icons/PlayArrow';
+import PauseIcon from '@material-ui/icons/Pause';
+import ReplayIcon from '@material-ui/icons/Replay';
+import '../Timer.css';
 class Timer extends React.Component {
   constructor(props) {
     super(props)
@@ -36,27 +39,29 @@ class Timer extends React.Component {
     let minutes = ("0" + (Math.floor(time / 60000) % 60)).slice(-2);
     let hours = ("0" + Math.floor(time / 3600000)).slice(-2);
     let start = (this.state.time === 0) ?
-      <button onClick={this.startTimer}>start</button> :
+      <PlayArrowIcon onClick={this.startTimer}>start</PlayArrowIcon> :
       null
     let stop = (this.state.time === 0 || !this.state.isOn) ?
       null :
-      <button onClick={this.stopTimer}>stop</button>
+      <PauseIcon onClick={this.stopTimer}>stop</PauseIcon>
     let resume = (this.state.time === 0 || this.state.isOn) ?
       null :
-      <button onClick={this.startTimer}>resume</button>
+      <PlayArrowIcon onClick={this.startTimer}>resume</PlayArrowIcon>
     let reset = (this.state.time === 0 || this.state.isOn) ?
       null :
-      <button onClick={this.resetTimer}>reset</button>
+      <ReplayIcon onClick={this.resetTimer}>reset</ReplayIcon>
     return (
-      <div>
-        <h3>timer:</h3>
-        <div className="Stopwatch-display">
-          {hours} : {minutes} : {seconds} : {centiseconds}
+      <div id="circle" class="">
+        <div class="insideCircle">
+          <h3>timer:</h3>
+          <div className="Stopwatch-display">
+            {hours} : {minutes} : {seconds} : {centiseconds}
+          </div>
+          {start}
+          {resume}
+          {stop}
+          {reset}
         </div>
-        {start}
-        {resume}
-        {stop}
-        {reset}
       </div>
     )
   }

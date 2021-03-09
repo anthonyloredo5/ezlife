@@ -1,0 +1,24 @@
+#circle {
+
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    text-align: center;
+    display: flex;
+    background-color:skyblue;
+    font-size: 2rem;
+    height: 250px;
+    width: 250px;
+    margin: 50px auto;
+  
+  }
+
+  .insideCircle {
+    margin: auto auto;
+  }
+  span {
+    font-size: 2.75rem;
+  }
+  h2{
+    font-size: 2.75rem;
+  }
