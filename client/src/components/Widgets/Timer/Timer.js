@@ -2,7 +2,7 @@ import React from 'react';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import PauseIcon from '@material-ui/icons/Pause';
 import ReplayIcon from '@material-ui/icons/Replay';
-import '../Timer.css';
+import './Timer.css';
 class Timer extends React.Component {
   constructor(props) {
     super(props)
