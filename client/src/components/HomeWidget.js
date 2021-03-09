@@ -16,7 +16,7 @@ function HomeWidget() {
 
     return (
         <Box className='widget_box'>
-            <Grid container justify="center" spacing={10}>
+            <Grid container justify="center" style={{marginTop: "10px"}} spacing={10}>
             <Grid item>
                 <GoalChart /> Goal Progress
             </Grid>

@@ -79,7 +79,7 @@ export default class WorkoutChart extends React.PureComponent {
           <Title text="Workout Streak" />
           <Stack
             stacks={[
-              { series: ['Cardio', 'Weight Lifting', 'CrossFit', 'Yoga'] },
+              { series: ['Cardio','Weight Lifting','CrossFit','Yoga'] },
 
             ]}
           />
