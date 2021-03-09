@@ -22,12 +22,12 @@ const Root = props => (
 );
 const data = [
   { day: 'Sunday', duration: 60, series: 'CrossFit' },
-  { day: 'Monday', duration: 30, series: 'Cardio'},
+  { day: 'Monday', duration: 30, series: 'Cardio' },
   { day: 'Tuesday', duration: 30, series: 'Yoga' },
   { day: 'Wednesday', duration: 45, series: 'Weight Training' },
-  { day: 'Thursday', duration: 50, series: 'Weight Training'},
+  { day: 'Thursday', duration: 50, series: 'Weight Training' },
   { day: 'Friday', duration: 45, series: 'CrossFit' },
-  { day: 'Saturday', duration: 60, series: 'Yoga'},
+  { day: 'Saturday', duration: 60, series: 'Yoga' },
 ];
 
 export default class WorkoutChart extends React.PureComponent {
@@ -44,24 +44,43 @@ export default class WorkoutChart extends React.PureComponent {
 
     return (
       <Paper>
-        <Chart width={700} height={350}
+        <Chart width={800} height={350}
           data={chartData}
         >
           <ArgumentAxis />
-          <ValueAxis/>
+          <ValueAxis />
 
           <BarSeries
-            name = "Type"
-            valueField= "duration"
+            name="CrossFit"
+            valueField="duration"
             argumentField="day"
           />
+
+          <BarSeries
+            name="Cardio"
+            valueField="duration"
+            argumentField="day"
+          />
+
+          <BarSeries
+            name="Weight Training"
+            valueField="duration"
+            argumentField="day"
+          />
+
+          <BarSeries
+            name="Yoga"
+            valueField="duration"
+            argumentField="day"
+          />
+
           <Animation />
           <Legend position="bottom" rootComponent={Root} />
           <Title text="Workout Streak" />
           <Stack
             stacks={[
               { series: ['Cardio', 'Weight Lifting', 'CrossFit', 'Yoga'] },
-              
+
             ]}
           />
         </Chart>

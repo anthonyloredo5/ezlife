@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import GoalChart from './Widgets/GoalPieChart';
-import WorkoutChart from './Widgets/WorkoutGraph';
+import WorkoutChart from './Widgets/WorkoutWidget/WorkoutGraph';
 import ToDoList from './Widgets/ToDo/Todo';
 import Timer from './Widgets/Timer/Timer';
 
@@ -44,7 +44,7 @@ function HomeWidget() {
                     Water Intake
                 </Grid>
                 <Grid item>
-                    <WorkoutChart /> Workout Streak
+                    <WorkoutChart />
                 </Grid>
             </Grid>
         </Box>
