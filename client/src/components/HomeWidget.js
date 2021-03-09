@@ -8,7 +8,7 @@ import GoalChart from './Widgets/GoalPieChart';
 import WorkoutChart from './Widgets/WorkoutGraph';
 import ToDoList from './Widgets/ToDo/Todo';
 import Timer from './Widgets/Timer/Timer';
-
+import WaterIntake from './Widgets/Water/WaterIntake';
 
 
 function HomeWidget() {
@@ -41,7 +41,7 @@ function HomeWidget() {
             </Grid>
             <Grid container justify="center" spacing={3}>
                 <Grid item>
-                    Water Intake
+                    <WaterIntake/>
                 </Grid>
                 <Grid item>
                     <WorkoutChart /> Workout Streak

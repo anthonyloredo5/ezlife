@@ -168,17 +168,17 @@ export default function PersistentDrawerLeft(props) {
 
 
         
-       {Clock ? (<List component="nav" aria-label="pages">
+       {/* {Clock ? (<List component="nav" aria-label="pages">
           {[{ text: 'Timer', url: "/timer", icon: <AccessAlarmIcon /> }, ].map((item, index) => (
             <Link href={item.url}>
               <ListItem button key={item.text}>
                 {/* <ListItemIcon>{index % 2 === 0 ? < AccessAlarmIcon/> : <FormatListBulletedIcon/>}</ListItemIcon> */}
-                <ListItemIcon>{item.icon}</ListItemIcon>
+                {/* <ListItemIcon>{item.icon}</ListItemIcon>
                 <ListItemText primary={item.text} />
               </ListItem>
             </Link>
           ))}
-        </List>) : (null)} 
+        // </List>) : (null)}  */} 
 
         {ToDos ? (<List component="nav" aria-label="pages">
           {[{ text: 'To-do', url: "/todo", icon: <FormatListBulletedIcon /> }, ].map((item, index) => (
