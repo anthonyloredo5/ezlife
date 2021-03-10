@@ -27,7 +27,7 @@ function HomeWidget() {
                     overflow: "hidden",
                     backgroundColor: "orange",
                     marginBottom: "10px",
-                    marginTop: "10px",
+                    marginTop: "40px",
                     boxShadow: "0 15px 20px rgba(0,0,0,0.30), 0 10px 12px rgba(0,0,0,0.22)",
                 }} >
                     <ToDoList />

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
+import './WaterIntake.css';
 import {
   Chart,
   BarSeries,
@@ -12,13 +13,13 @@ import {
 import { Animation } from '@devexpress/dx-react-chart';
 
 const data = [
-  { year: '1', population: 2.525 },
-  { year: '2', population: 3.018 },
-  { year: '3', population: 3.682 },
-  { year: '4', population: 4.440 },
-  { year: '5', population: 5.310 },
-  { year: '6', population: 6.127 },
-  { year: '7', population: 6.930 },
+  { day: 'Mon.', cup: 2 },
+  { day: 'Tues.', cup: 3 },
+  { day: 'Wed.', cup: 3.5 },
+  { day: 'Thur. ', cup: 1 },
+  { day: 'Fri.', cup: 6 },
+  { day: 'Sat.', cup: 4 },
+  { day: 'Sun.', cup: 6.7},
 ];
 
 export default class Demo extends React.PureComponent {
@@ -34,21 +35,33 @@ export default class Demo extends React.PureComponent {
     const { data: chartData } = this.state;
 
     return (
-      <Paper>
+      <Paper style= {{
+        width: "299px",
+        marginRight: "20px",
+      
+      }}>
         <Chart
           data={chartData}
+          style= {{width: "299px", marginRight: "20px"}}
         >
           <ArgumentAxis />
           <ValueAxis max={10} />
 
           <BarSeries
-            valueField="population"
-            argumentField="year"
+            valueField="cup"
+            argumentField="day"
           />
-          <Title text="Water Intake" />
-          <Button onClick={()=>{}}>Add Water</Button>
+          <Title text="Water Intake"  />
           <Animation />
         </Chart>
+        <Button  variant="contained" style={{
+          backgroundColor: "#42a5f5",
+          justifyContent: "center",
+          alignItems: "center",
+          marginLeft: "85px",
+          marginBottom: "5px"
+        
+        }} onClick={()=>{}}>Add Water</Button>
       </Paper>
     );
   }
