@@ -12,8 +12,9 @@ function Jumbotron() {
     marginBottom: "20px",
     height: "190px",
     overflow: "auto",
-     backgroundImage: `url(${background})`,
-    
+    //  backgroundImage: `url(${background})`,
+    backgroundColor: "#bbbbbb",
+    opacity: "10px",
     boxShadow: "0 15px 20px rgba(0,0,0,0.30), 0 10px 12px rgba(0,0,0,0.22)",
       }} >
          

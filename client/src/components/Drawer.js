@@ -27,6 +27,7 @@ import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import Grid from '@material-ui/core/Grid'
 import { Button } from 'reactstrap';
+import background from '../images/background3.png';
 
 const drawerWidth = 240;
 
@@ -124,7 +125,7 @@ export default function PersistentDrawerLeft(props) {
           [classes.appBarShift]: open,
         })}
       >
-        <Toolbar style= {{backgroundColor: "#111d61"}}>
+        <Toolbar style= {{backgroundImage: `url(${background})`}}>
           <IconButton
             color="white"
             aria-label="open drawer"
