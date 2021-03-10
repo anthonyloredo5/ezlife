@@ -145,7 +145,7 @@ export default function PersistentDrawerLeft(props) {
             </IconButton>
             ezlife
           </Typography>
-            <IconButton onClick={props.getStarted} edge='end' style={{ position: "absolute", right: 0, marginRight: "10px" }}>
+            <IconButton onClick={props.getStarted} edge='end' style={{ position: "absolute", right: 0, marginRight: "10px", color: "white" }}>
               Get Started
         </IconButton>
         </Toolbar>
