@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, useHistory } from "react-router-dom";
+
 //import './App.css';
 import Wrapper from "./components/Wrapper";
 import Drawer from "./components/Drawer"; 
@@ -16,10 +17,13 @@ import Goals from "./Pages/Goals";
 import Screentime from "./Pages/Screentime"; 
 import Budget from "./Pages/Budget"; 
 import UserWidgetSelect from "./components/UserWidgetSelect/UserWidgetSelect";
+import { UserProvider } from "./utils/UserContext";
 
 const { createContext, useContext, useState, } = React;
 
 function App() {
+
+  const history = useHistory();
 
   const [userState, setUserState] = useState({
     id: '',
@@ -28,9 +32,11 @@ function App() {
   })
 
   const updateUser = (userLoggedIn) => {
-    console.log('About to update user!!', userLoggedIn.result.email)
+    console.log('About to update user IN THE APP FILE!!!', userLoggedIn.result.email)
     setUserState(userLoggedIn)
-    localStorage.setItem("email", userLoggedIn.result.email);
+    console.log('IN APP FILE ABOUT OT CHANE ROUTE!!!!')
+    history.push("/dash");
+    // localStorage.setItem("email", userLoggedIn.result.email);
   }
 
   const updateUserOnRefresh = () => {
@@ -47,15 +53,16 @@ function App() {
       .catch((err) => err.message);
   }
 
-  useEffect(() => {
-    updateUserOnRefresh();
-  }, []);
+  // useEffect(() => {
+  //   updateUserOnRefresh();
+  // }, []);
 
   return (
 
     <ThemeContext.Provider
     value={{ userState, updateUser }}
   >
+    <UserProvider>
     <Router>
       <div>
         <Wrapper>
@@ -66,7 +73,7 @@ function App() {
           <Route exact path="/dash" component={Dash} />
 
           
-          <Route exact path="/signUp" component={CreateAccount} />
+          <Route exact path="/signUp" render={ () => <CreateAccount updateUser = {updateUser} />} />
           <Route exact path="/Login" component={Login} />
           <Route path="/timer" component={Timer} />
           <Route path="/fitness" component={Fitness}  />
@@ -78,6 +85,7 @@ function App() {
         </Wrapper>
       </div>
     </Router>
+    </UserProvider>
     </ThemeContext.Provider>
   );
 }

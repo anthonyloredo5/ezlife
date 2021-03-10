@@ -1,6 +1,7 @@
-const path = require("path");
-const router = require("express").Router();
-const userRoutes = require("./users");
+const path =require('path');
+const express =require('express');
+const router = express.Router();
+const userRoutes =require('./users.js');
 
 //User Routes
 router.use("/users", userRoutes);

@@ -1,23 +1,22 @@
-import express from 'express';
-import mongoose from 'mongoose';
-import bodyParser from 'body-parser';
-import cors from 'cors';
-import dotenv from 'dotenv';
-import path from 'path'
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
-import userRoutes from './routes/routes.js'
-import routes from './routes/index.js';
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const dotenv = require('dotenv');
+const path = require('path');
+const { fileURLToPath } = require('url');
+const userRoutes = require('./routes/routes.js');
+const routes = require('./routes/index.js');
 /* === Dependencies === */
-import logger from 'morgan';
-import cookieParser from 'cookie-parser';
-import passport from 'passport';
-import passportLocal from 'passport-local';
-import LocalStrategy from passportLocal.Strategy();
-import flash from 'connect-flash';
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const passport = require('passport');
+const passportLocal = require('passport-local');
+const LocalStrategy = passportLocal.Strategy;
+const flash = require('connect-flash');
+const session = require('express-session');
 
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 dotenv.config();
@@ -29,7 +28,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(require('express-session')({
+app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: false
@@ -45,7 +44,7 @@ app.use(cors());
 
 
 /* === Server-Side Authentication w/passport.js on our Model === */
-const Account = require('./models/account');
+const Account = require('./models/account.js');
 passport.use(new LocalStrategy(Account.authenticate()));
 passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());

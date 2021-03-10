@@ -27,6 +27,8 @@ import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import Grid from '@material-ui/core/Grid'
 import { Button } from 'reactstrap';
+import Auth from "../utils/Auth";
+import { UserContext } from "../utils/UserContext";
 
 const drawerWidth = 240;
 
@@ -93,12 +95,7 @@ export default function PersistentDrawerLeft(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-
-  const stateFromApp = useContext(ThemeContext);
-  const Clock = stateFromApp.userState.result.Clock;
-  const ToDos = stateFromApp.userState.result.ToDos;
-  const Fitness = stateFromApp.userState.result.Fitness;
-  const Goals = stateFromApp.userState.result.Goals;
+  const [user, dispatch] = useContext(UserContext);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -111,8 +108,12 @@ export default function PersistentDrawerLeft(props) {
   const handleClick = (e) => {
     e.preventDefault();
 
-    stateFromApp.updateUser(null);
-    history.push("/");
+    Auth.signout(() => history.push('/'))
+    dispatch({
+      type: "GET_USER",
+      payload: {}
+    })
+  
   }
 
   return (
@@ -168,7 +169,7 @@ export default function PersistentDrawerLeft(props) {
 
 
         
-       {Clock ? (<List component="nav" aria-label="pages">
+       (<List component="nav" aria-label="pages">
           {[{ text: 'Timer', url: "/timer", icon: <AccessAlarmIcon /> }, ].map((item, index) => (
             <Link href={item.url}>
               <ListItem button key={item.text}>
@@ -178,9 +179,9 @@ export default function PersistentDrawerLeft(props) {
               </ListItem>
             </Link>
           ))}
-        </List>) : (null)} 
+        </List>)
 
-        {ToDos ? (<List component="nav" aria-label="pages">
+        (<List component="nav" aria-label="pages">
           {[{ text: 'To-do', url: "/todo", icon: <FormatListBulletedIcon /> }, ].map((item, index) => (
             <Link href={item.url}>
               <ListItem button key={item.text}>
@@ -190,10 +191,10 @@ export default function PersistentDrawerLeft(props) {
               </ListItem>
             </Link>
           ))}
-        </List>) : (null)}
+        </List>) 
 
 
-        {Fitness ? (<List component="nav" aria-label="pages2">
+        (<List component="nav" aria-label="pages2">
           {[{ text: 'Workouts', url: '/fitness', icon: <FitnessCenterIcon /> }, ].map((item, index) => (
             <Link href={item.url}>
               <ListItem button key={item.text}>
@@ -203,9 +204,9 @@ export default function PersistentDrawerLeft(props) {
               </ListItem>
             </Link>
           ))}
-        </List>) : (null)}
+        </List>)
 
-        {Goals ? (<List component="nav" aria-label="pages2">
+      <List component="nav" aria-label="pages2">
           {[ { text: 'Goals', url: '/goals', icon: <StarsIcon /> }].map((item, index) => (
             <Link href={item.url}>
               <ListItem button key={item.text}>
@@ -215,7 +216,7 @@ export default function PersistentDrawerLeft(props) {
               </ListItem>
             </Link>
           ))}
-        </List>) : (null)}
+        </List>
 
         <Divider />
 

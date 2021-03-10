@@ -1,10 +1,8 @@
-POST http://localhost:5000/api/signup
+POST http://localhost:5000/api/users/login
 Content-Type: application/json
 
 {
-    "fullName": "Smith",
-    "userName": "Smithman",
-    "email": "Smith@Smith.com",
+    "username": "Smithman",
     "password": "Smith123"
 }
 

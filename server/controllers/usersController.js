@@ -3,13 +3,14 @@ const passport = require('passport');
 
 module.exports = {
 	getUser: function (req, res) {
-
+		console.log(req.session.passport, 'user being passed to getUser');
 		const { user } = req.session.passport
+		console.log(user, 'user value');
 
 		if (user) {
 			Account.findOne({ username: user })
 				.then(userData => {
-					console.log(userData);
+					console.log(userData, "userdata");
 					const { _id, username } = userData;
 					return res.status(200).json({
 						id: _id,
@@ -38,8 +39,9 @@ module.exports = {
 
 						return next(err);
 					}
+					console.log('THi si the account we just made', account)
 
-					res.send(200, "successful register");
+					res.json(account);
 				});
 			});
 		});

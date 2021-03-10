@@ -16,20 +16,37 @@ import GoalChart from '../components/Widgets/GoalPieChart';
 import WorkoutChart from '../components/Widgets/WorkoutGraph';
 import ToDoList from '../components/Widgets/Todo';
 import Timer from '../components/Widgets/Timer';
+import { UserContext } from "../utils/UserContext";
+const { useContext, useState, useEffect } = React;
 
 function Dash() {
-    const { createContext, useContext, useState, useEffect } = React;
+
+    const [user, dispatch] = useContext(UserContext)
+	console.log(user, 'should be user from log in')
 
     const [modal, setModal] = useState(false);
 
-    const stateFromApp = useContext(ThemeContext);
-    const firstTime = stateFromApp.userState.result.firstTime;
-    const ToDos = stateFromApp.userState.result.ToDos;
-    const Clock = stateFromApp.userState.result.Clock;
-    const Fitness = stateFromApp.userState.result.Fitness;
-    const Goals = stateFromApp.userState.result.Goals;
-    const Timer = stateFromApp.userState.result.Timer;
-    console.log('THIS SHOUDL B STATE FROM APP in the home widget', stateFromApp);
+    useEffect(() => {
+		fetch('api/users/user', {
+			credentials: 'include'
+		})
+			.then((res) => {
+				console.log(`response to authenticate ${res}`);
+				return res.json(res)
+
+			})
+			.then(data => {
+				console.log(data, 'user DATA');
+				dispatch({
+					type: "GET_USER",
+					payload: data
+				})
+
+			})
+			.catch((err) => {
+				console.log('Error fetching authorized user.');
+			});
+	}, []);
 
     const getStarted = (e) => {
         e.preventDefault();
@@ -44,7 +61,7 @@ function Dash() {
                 <ModalWidget modal={modal} />
                 <Drawer getStarted={getStarted} />
                 <Jumbotron />
-                {firstTime ? (null) : (<Box className='widget_box'>
+                (<Box className='widget_box'>
                     <Grid container justify="center" spacing={3}>
                         <Grid item>
                             <Paper style={{ height: 200, width: 200 }} /> Workout of the Day
@@ -60,10 +77,10 @@ function Dash() {
                             boxShadow: "0 15px 20px rgba(0,0,0,0.30), 0 10px 12px rgba(0,0,0,0.22)",
 
                         }} >
-                            {ToDos ? (<ToDoList />) : (null)}
+                            (<ToDoList />) 
                         </GridList>
                         <Grid item>
-                            {Clock ? (<Timer />) : (null)}
+                           (<Timer />)
                         </Grid>
                         <Grid item>
                             <Paper style={{ height: 200, width: 200 }} /> Goals
@@ -74,13 +91,13 @@ function Dash() {
                             Water Intake
                 </Grid>
                         <Grid item>
-                            {Goals ? (<GoalChart />, "Goal Progress") : (null)}
+                            (<GoalChart />)
                         </Grid>
                         <Grid item>
                             <WorkoutChart /> Workout Streak
                 </Grid>
                     </Grid>
-                </Box>)}
+                </Box>)
             </Container>
         </div>
 
