@@ -124,22 +124,22 @@ export default function PersistentDrawerLeft(props) {
           [classes.appBarShift]: open,
         })}
       >
-        <Toolbar>
+        <Toolbar style= {{backgroundColor: "#111d61"}}>
           <IconButton
-            color="inherit"
+            color="white"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             edge="start"
             className={clsx(classes.menuButton, open && classes.hide)}
           >
-            <MenuIcon />
+            <MenuIcon style= {{color: "white"}}/>
           </IconButton>
           <Typography variant="h6" noWrap>
             <IconButton
               aria-label="list"
             >
               <Link href="/dash">
-              <FavoriteBorderIcon style={{ color: "#fdd835" }} 
+              <FavoriteBorderIcon style={{ color: "#ffd54f" }} 
               /></Link>
               
             </IconButton>

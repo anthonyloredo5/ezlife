@@ -17,15 +17,15 @@ function HomeWidget() {
     return (
         <Box className='widget_box'>
             <Grid container justify="center" style={{marginTop: "10px"}} spacing={10}>
-            <Grid item>
+            {/* <Grid item>
                 <GoalChart /> Goal Progress
-            </Grid>
+            </Grid> */}
                 <GridList item style={{
                     height: 250,
                     width: 230,
                     padding: "10px",
                     overflow: "hidden",
-                    backgroundColor: "orange",
+                    backgroundColor: "#f5f5f5",
                     marginBottom: "10px",
                     marginTop: "40px",
                     boxShadow: "0 15px 20px rgba(0,0,0,0.30), 0 10px 12px rgba(0,0,0,0.22)",
@@ -35,16 +35,17 @@ function HomeWidget() {
                 <Grid item>
                     <Timer />
                 </Grid>
-                <Grid item>
-                    <Paper style={{ height: 200, width: 200 }} /> Goals
-                 </Grid>
+                {/* this is supposed to be the goals section but i will remove until we figure out what to do with it */}
+                {/* <Grid item>
+                    <Paper style={{ height: 200, width: 200 , backgroundColor: "#d5d5da"}} /> 
+                 </Grid> */}
             </Grid>
             <Grid container justify="center" spacing={3}>
                 <Grid item>
-                    <WaterIntake/>
+                    <WaterIntake style={{ backgroundColor: "#d5d5da"}}/>
                 </Grid>
                 <Grid item>
-                    <WorkoutChart /> Workout Streak
+                    <WorkoutChart  style= {{backgroundColor: "#d5d5da"}}/> Workout Streak
                 </Grid>
             </Grid>
         </Box>

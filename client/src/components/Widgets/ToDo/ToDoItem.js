@@ -14,7 +14,7 @@ function ToDoItem(props) {
                 }} />
                 <span>
 
-                    <DeleteIcon style={{ color: "#2196f3" }} onClick={() => {
+                    <DeleteIcon style={{ color: "black" }} onClick={() => {
                         props.deleteItem(item.key)
                     }} ></DeleteIcon>
                 </span>

@@ -2,6 +2,7 @@ import * as React from 'react';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import './WaterIntake.css';
+
 import {
   Chart,
   BarSeries,
@@ -13,7 +14,7 @@ import {
 import { Animation } from '@devexpress/dx-react-chart';
 
 const data = [
-  { day: 'Mon.', cup: 2 },
+  { day: 'Mon.', cup: 2 ,},
   { day: 'Tues.', cup: 3 },
   { day: 'Wed.', cup: 3.5 },
   { day: 'Thur. ', cup: 1 },
