@@ -10,6 +10,7 @@ import ThemeContext from './Context.js'
 import CreateAccount from './components/CreateAccount';
 import Login from './components/Login';
 import Timer from "./Pages/Timer"; 
+import Todo from "./Pages/Todo";
 import Fitness from "./Pages/Fitness"; 
 import Goals from "./Pages/Goals"; 
 import Screentime from "./Pages/Screentime"; 
@@ -50,6 +51,7 @@ function App() {
           <Route exact path="/signUp" component={CreateAccount} />
           <Route exact path="/Login" component={Login} />
           <Route path="/timer" component={Timer} />
+          <Route path="/todo" component={Todo} />
           <Route path="/fitness" component={Fitness}  />
           <Route path="/goals" component={Goals}  />
           <Route path="/screentime" component={Screentime}  />
