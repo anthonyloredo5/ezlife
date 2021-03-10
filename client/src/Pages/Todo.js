@@ -7,6 +7,7 @@ import Col from "../components/Col";
 import DeleteBtn from "../components/DeleteBtn";
 import HomeBtn from "../components/HomeBtn"; 
 
+
 import { Input, TextArea, FormBtn } from "../components/Form"; 
 
 
@@ -75,8 +76,9 @@ function Todos() {
                     <ListItem key={todo._id}>
                       <a href={"/todos/" + todo._id}>
                         <strong>
-                          {todo.title} || {todo.todoNote}
+                          {todo.title}  
                         </strong>
+                        <p>{todo.todoNote}</p>
                       </a>
                       <DeleteBtn onClick={() => deleteTodo(todo._id)} />
                     </ListItem>

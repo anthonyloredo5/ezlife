@@ -1,4 +1,5 @@
 import React from "react";
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
 
 // The ...props means, spread all of the passed props onto this element
@@ -6,7 +7,7 @@ import React from "react";
 function DeleteBtn(props) {
   return (
     <span className="delete-btn float-right" {...props} role="button" tabIndex="0">
-      ✗
+      <DeleteForeverIcon />
     </span>
   );
 }
