@@ -5,12 +5,12 @@
     border-radius: 100%;
     text-align: center;
     display: flex;
-    background-color:skyblue;
+    background-color:#f5f5f5;
     font-size: 2rem;
     height: 250px;
     width: 250px;
-    margin: 50px auto;
-  
+    margin-bottom: 10px;
+    
   }
 
   .insideCircle {

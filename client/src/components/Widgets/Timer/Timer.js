@@ -2,7 +2,7 @@ import React from 'react';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import PauseIcon from '@material-ui/icons/Pause';
 import ReplayIcon from '@material-ui/icons/Replay';
-import '../Timer.css';
+import './Timer.css';
 class Timer extends React.Component {
   constructor(props) {
     super(props)
@@ -51,7 +51,7 @@ class Timer extends React.Component {
       null :
       <ReplayIcon onClick={this.resetTimer}>reset</ReplayIcon>
     return (
-      <div id="circle" class="">
+      <div id="circle" class="" style={{boxShadow: "0 15px 20px rgba(0,0,0,0.30), 0 10px 12px rgba(0,0,0,0.22)"}}>
         <div class="insideCircle">
           <h3>timer:</h3>
           <div className="Stopwatch-display">

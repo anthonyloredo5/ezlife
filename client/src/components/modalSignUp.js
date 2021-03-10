@@ -16,7 +16,7 @@ const ModalSignUp = (props) => {
 console.log('PROPS IN THE MODAL SIGN UP', props)
   return (
     <div>
-      <Button style={{backgroundColor: "#64b5f6", color: "black", size: "large"}} onClick={toggle}>Get started!</Button>
+      <Button style={{backgroundColor: "#ffd54f", color: "black", size: "large", fontFamily: "Chalkboard"}} onClick={toggle}>get started!</Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle} style={{backgroundColor: "#ffeb3b"}}>Create an account to simplify your life! </ModalHeader>
         <ModalBody>

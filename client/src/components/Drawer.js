@@ -125,28 +125,28 @@ export default function PersistentDrawerLeft(props) {
           [classes.appBarShift]: open,
         })}
       >
-        <Toolbar>
+        <Toolbar style= {{backgroundColor: "#111d61"}}>
           <IconButton
-            color="inherit"
+            color="white"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             edge="start"
             className={clsx(classes.menuButton, open && classes.hide)}
           >
-            <MenuIcon />
+            <MenuIcon style= {{color: "white"}}/>
           </IconButton>
           <Typography variant="h6" noWrap>
             <IconButton
               aria-label="list"
             >
               <Link href="/dash">
-              <FavoriteBorderIcon style={{ color: "#fdd835" }} 
+              <FavoriteBorderIcon style={{ color: "#ffd54f" }} 
               /></Link>
               
             </IconButton>
             ezlife
           </Typography>
-            <IconButton onClick={props.getStarted} edge='end' style={{ position: "absolute", right: 0, marginRight: "10px" }}>
+            <IconButton onClick={props.getStarted} edge='end' style={{ position: "absolute", right: 0, marginRight: "10px", color: "white" }}>
               Get Started
         </IconButton>
         </Toolbar>
@@ -169,17 +169,17 @@ export default function PersistentDrawerLeft(props) {
 
 
         
-       (<List component="nav" aria-label="pages">
+       {/* {Clock ? (<List component="nav" aria-label="pages">
           {[{ text: 'Timer', url: "/timer", icon: <AccessAlarmIcon /> }, ].map((item, index) => (
             <Link href={item.url}>
               <ListItem button key={item.text}>
                 {/* <ListItemIcon>{index % 2 === 0 ? < AccessAlarmIcon/> : <FormatListBulletedIcon/>}</ListItemIcon> */}
-                <ListItemIcon>{item.icon}</ListItemIcon>
+                {/* <ListItemIcon>{item.icon}</ListItemIcon>
                 <ListItemText primary={item.text} />
               </ListItem>
             </Link>
           ))}
-        </List>)
+        // </List>) : (null)}  */} 
 
         (<List component="nav" aria-label="pages">
           {[{ text: 'To-do', url: "/todo", icon: <FormatListBulletedIcon /> }, ].map((item, index) => (
