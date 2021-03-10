@@ -8,7 +8,7 @@ import GoalChart from './Widgets/GoalPieChart';
 import WorkoutChart from './Widgets/WorkoutGraph';
 import ToDoList from './Widgets/ToDo/Todo';
 import Timer from './Widgets/Timer/Timer';
-
+import WaterIntake from './Widgets/Water/WaterIntake';
 
 
 function HomeWidget() {
@@ -27,7 +27,7 @@ function HomeWidget() {
                     overflow: "hidden",
                     backgroundColor: "darkSeaGreen",
                     marginBottom: "10px",
-                    marginTop: "10px",
+                    marginTop: "40px",
                     boxShadow: "0 15px 20px rgba(0,0,0,0.30), 0 10px 12px rgba(0,0,0,0.22)",
                 }} >
                     <ToDoList />
@@ -35,16 +35,18 @@ function HomeWidget() {
                 <Grid item>
                     <Timer />
                 </Grid>
-                <Grid item>
-                    <Paper style={{ height: 200, width: 200 }} /> Goals
-                 </Grid>
+                {/* this is supposed to be the goals section but i will remove until we figure out what to do with it */}
+                {/* <Grid item>
+                    <Paper style={{ height: 200, width: 200 , backgroundColor: "#d5d5da"}} /> 
+                 </Grid> */}
             </Grid>
             <Grid container justify="center" spacing={3}>
                 <Grid item>
-                    Water Intake
+                    <WaterIntake style={{ backgroundColor: "#d5d5da"}}/>
                 </Grid>
                 <Grid item>
-                    <WorkoutChart /> 
+                    <WorkoutChart  style= {{backgroundColor: "#d5d5da"}}/> Workout Streak
+
                 </Grid>
             </Grid>
         </Box>
