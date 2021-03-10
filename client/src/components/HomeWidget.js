@@ -25,7 +25,7 @@ function HomeWidget() {
                     width: 230,
                     padding: "10px",
                     overflow: "hidden",
-                    backgroundColor: "#f5f5f5",
+                    backgroundColor: "darkSeaGreen",
                     marginBottom: "10px",
                     marginTop: "40px",
                     boxShadow: "0 15px 20px rgba(0,0,0,0.30), 0 10px 12px rgba(0,0,0,0.22)",
@@ -46,6 +46,7 @@ function HomeWidget() {
                 </Grid>
                 <Grid item>
                     <WorkoutChart  style= {{backgroundColor: "#d5d5da"}}/> Workout Streak
+
                 </Grid>
             </Grid>
         </Box>

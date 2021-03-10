@@ -1,9 +1,10 @@
 import React from "react"; 
+import WorkoutTracker from "../components/WorkoutCalendar";
 
 function Fitness () { 
     return ( 
         <>
-        <h1> This will be our fitness tracker page with inputs specific to the user.</h1>
+        <WorkoutTracker/>
         </>
     )
 }
