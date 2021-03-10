@@ -61,7 +61,7 @@ class ToDoList extends React.Component {
                   onChange={this.handleInput}
                  
                 />
-                <AddCircleOutlineIcon 
+                <AddCircleOutlineIcon style={{ color: "white" }}
                 type="submit"
                 onClick={this.addItem}
                 >Add</AddCircleOutlineIcon>
