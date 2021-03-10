@@ -14,9 +14,9 @@ function Dash() {
     const [modal, setModal] = useState(false);
 
     const stateFromApp = useContext(ThemeContext)
-    // const firstTime = stateFromApp.userState.result.firstTime;
+    const firstTime = stateFromApp.userState.result.firstTime;
     console.log('THIS SHOUDL B STATE FROM APP in the home widget', stateFromApp);
-    // console.log(firstTime);
+    console.log(firstTime);
 
     const getStarted = (e) => {
         e.preventDefault();
@@ -33,7 +33,7 @@ function Dash() {
                 <ModalWidget modal={modal} />
                 <Drawer getStarted={getStarted} />
                 <Jumbotron />
-                {/* {firstTime ? (null) : (<HomeWidget />)} */}
+                {firstTime ? (null) : (<HomeWidget />)}
             </Container>
         </div>
 
