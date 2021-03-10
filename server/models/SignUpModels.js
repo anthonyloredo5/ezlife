@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require("mongoose"); 
 
 const signUpTemplate = new mongoose.Schema({
     fullName: {
@@ -45,4 +45,4 @@ const signUpTemplate = new mongoose.Schema({
 
 const model = mongoose.model('myTable', signUpTemplate);
 
-export default model;
+module.exports = model;
