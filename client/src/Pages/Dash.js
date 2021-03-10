@@ -14,8 +14,8 @@ import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import GoalChart from '../components/Widgets/GoalPieChart';
 import WorkoutChart from '../components/Widgets/WorkoutGraph';
-import ToDoList from '../components/Widgets/Todo';
-import Timer from '../components/Widgets/Timer';
+import ToDoList from '../components/Widgets/ToDo/Todo';
+import Timer from '../components/Widgets/Timer/Timer';
 import { UserContext } from "../utils/UserContext";
 const { useContext, useState, useEffect } = React;
 
