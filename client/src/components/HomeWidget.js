@@ -25,7 +25,7 @@ function HomeWidget() {
                     width: 230,
                     padding: "10px",
                     overflow: "hidden",
-                    backgroundColor: "darkSeaGreen",
+                    backgroundColor: "rgb(17, 29, 97)",
                     marginBottom: "10px",
                     marginTop: "40px",
                     boxShadow: "0 15px 20px rgba(0,0,0,0.30), 0 10px 12px rgba(0,0,0,0.22)",
