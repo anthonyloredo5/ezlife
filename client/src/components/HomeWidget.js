@@ -17,15 +17,15 @@ function HomeWidget() {
     return (
         <Box className='widget_box'>
             <Grid container justify="center" style={{marginTop: "10px"}} spacing={10}>
-            <Grid item>
+            {/* <Grid item>
                 <GoalChart /> Goal Progress
-            </Grid>
+            </Grid> */}
                 <GridList item style={{
                     height: 250,
                     width: 230,
                     padding: "10px",
                     overflow: "hidden",
-                    backgroundColor: "orange",
+                    backgroundColor: "darkSeaGreen",
                     marginBottom: "10px",
                     marginTop: "10px",
                     boxShadow: "0 15px 20px rgba(0,0,0,0.30), 0 10px 12px rgba(0,0,0,0.22)",
@@ -44,7 +44,7 @@ function HomeWidget() {
                     Water Intake
                 </Grid>
                 <Grid item>
-                    <WorkoutChart /> Workout Streak
+                    <WorkoutChart /> 
                 </Grid>
             </Grid>
         </Box>
