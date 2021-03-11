@@ -7,11 +7,12 @@
 
 .hero * {
   position: relative;
+  
 }
 
 .hero h1 {
-  font-size: 60px;
-  padding-top: 200px;
+  font-size: 60;
+  padding-top: 170px;
   justify-content: center;
   text-align:center; 
   margin-top: 0;
