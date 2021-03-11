@@ -60,7 +60,10 @@ function HomeWidget() {
                     {Water ? <div><WaterIntake style={{ backgroundColor: "#d5d5da" }} /></div> : (null)}
                 </Grid>
                 <Grid item>
-                    {Fitness ? <div><WorkoutChart style={{ backgroundColor: "#d5d5da" }} /> Workout Streak</div> : (null)}
+
+                    <WorkoutChart  style= {{backgroundColor: "#d5d5da"}}/>
+
+
                 </Grid>
             </Grid>
         </Box>
