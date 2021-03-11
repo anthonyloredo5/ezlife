@@ -6,8 +6,10 @@ function TimerPage () {
     return ( 
         <>
         <Drawer />
-        <h1> Hopefully this works lets see </h1>
+        
+        <h1> does this work lol </h1>
         <Timer />
+        
         </>
     )
 }
