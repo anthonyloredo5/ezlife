@@ -20,6 +20,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import AccessAlarmIcon from '@material-ui/icons/AccessAlarm';
 import AddIcon from '@material-ui/icons/Add';
+import LocalDrinkIcon from '@material-ui/icons/LocalDrink';
 import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
 import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
 import StarsIcon from '@material-ui/icons/Stars';
@@ -103,6 +104,7 @@ export default function PersistentDrawerLeft(props) {
   const ToDos = user.ToDos;
   const Fitness = user.Fitness;
   const Goals = user.Goals;
+  const Water = user.Water;
 
 
   const handleDrawerOpen = () => {
@@ -217,6 +219,18 @@ export default function PersistentDrawerLeft(props) {
 
         {Goals ? (<List component="nav" aria-label="pages2">
           {[{ text: 'Goals', url: '/goals', icon: <StarsIcon /> }].map((item, index) => (
+            <Link href={item.url}>
+              <ListItem button key={item.text}>
+                {/* <ListItemIcon>{index % 2 === 0 ? <FitnessCenterIcon/> : <StarsIcon/>  }</ListItemIcon> */}
+                <ListItemIcon>{item.icon}</ListItemIcon>
+                <ListItemText primary={item.text} />
+              </ListItem>
+            </Link>
+          ))}
+        </List>) : (null)}
+
+        {Water ? (<List component="nav" aria-label="pages2">
+          {[{ text: 'Water', url: '/water', icon: <LocalDrinkIcon /> }].map((item, index) => (
             <Link href={item.url}>
               <ListItem button key={item.text}>
                 {/* <ListItemIcon>{index % 2 === 0 ? <FitnessCenterIcon/> : <StarsIcon/>  }</ListItemIcon> */}
