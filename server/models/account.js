@@ -4,17 +4,13 @@ const passportLocalMongoose = require('passport-local-mongoose');
 const Account = new mongoose.Schema({
     username: String,
     password: String,
-    
-});
-
-Account.plugin(passportLocalMongoose, {
     fullName: {
         type: String,
-        required: true
+        required: false
     },
     email: {
         type: String,
-        required: true
+        required: false
     },
     date: {
         type: Date,
@@ -25,6 +21,10 @@ Account.plugin(passportLocalMongoose, {
         default: true
     },
     ToDos: {
+        type: Boolean,
+        default: false,
+    },
+    Water: {
         type: Boolean,
         default: false,
     },
@@ -40,7 +40,10 @@ Account.plugin(passportLocalMongoose, {
         type: Boolean,
         default: false,
     },
+    
 });
+
+Account.plugin(passportLocalMongoose);
 
 const model = mongoose.model('accounts', Account);
 module.exports = model;
