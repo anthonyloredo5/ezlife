@@ -5,16 +5,16 @@ import DeleteIcon from '@material-ui/icons/Delete';
 
 function Workout(props) {
    
-    const workouts = props.workouts;
-    const listWorkouts = workouts.map(workout => {
-        return <div className="list" key={workout.key}>
+    const items = props.items;
+    const listItems = items.map(item => {
+        return <div className="list" key={item.key}>
             <p>
-                <input type="text" style={{backgroundColor: "white", fontFamily:"Arial"}} id={workout.key} value={workout.text} onChange={(e) => {
-                    props.setUpdate(e.target.value, workout.key)
+                <input type="text" style={{backgroundColor: "white", fontFamily:"Arial"}} id={item.key} value={item.text} onChange={(e) => {
+                    props.setUpdate(e.target.value, item.key)
                 }} />
                 <span>
                     <DeleteIcon style={{ color: "white" }} onClick={() => {
-                        props.deleteWorkout(workout.key)
+                        props.deleteItem(item.key)
                     }} ></DeleteIcon>
                 </span>
             </p>
@@ -24,7 +24,7 @@ function Workout(props) {
     return <div style={{
         
     }}>
-        {listWorkouts}
+        {listItems}
         
     </div>;
     

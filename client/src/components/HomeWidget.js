@@ -47,7 +47,7 @@ function HomeWidget() {
                     <WaterIntake style={{ backgroundColor: "#d5d5da"}}/>
                 </Grid>
                 <Grid item>
-                    <WorkoutChart  style= {{backgroundColor: "#d5d5da"}}/> Workout Streak
+                    <WorkoutChart  style= {{backgroundColor: "#d5d5da"}}/>
 
                 </Grid>
             </Grid>
