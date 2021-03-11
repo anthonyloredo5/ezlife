@@ -23,10 +23,10 @@ function HomeWidget() {
                     width: 230,
                     padding: "10px",
                     overflow: "hidden",
-                    // backgroundColor: "darkSeaGreen",
+                    backgroundColor: "#F6D767",
                     marginBottom: "10px",
                     marginTop: "40px",
-                    boxShadow: "0 15px 20px rgba(0,0,0,0.30), 0 10px 12px rgba(0,0,0,0.22)",
+                    boxShadow: "0 1px 6px rgba(0,0,0,0.30), 0 1px 9px rgba(0,0,0,0.22)",
                 }} >
                     <ToDoList />
                 </GridList>
@@ -47,8 +47,8 @@ function HomeWidget() {
                     <WaterIntake style={{ backgroundColor: "#d5d5da"}}/>
                 </Grid>
                 <Grid item>
-                    <WorkoutChart  style= {{backgroundColor: "#d5d5da"}}/> Workout Streak
-                    <WorkoutChart /> 
+                    <WorkoutChart  style= {{backgroundColor: "#d5d5da"}}/> 
+                     
                 </Grid>
             </Grid>
         </Box>

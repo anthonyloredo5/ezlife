@@ -3,11 +3,12 @@
   background-size: cover;
   background-repeat: no-repeat;
  background-position: center;
+
 }
 
 .hero * {
   position: relative;
-  z-index: 3000;
+  
 }
 
 .hero h1 {

@@ -5,11 +5,13 @@
     /* border-radius: 100%; */
     text-align: center;
     display: flex;
-    background-color:#03506f;
+    background-color:#AEDBB7;
     font-size: 2rem;
     height: 250px;
     width: 250px;
     margin-bottom: 10px;
+    box-shadow: black;
+  
     
   }
 

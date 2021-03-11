@@ -62,6 +62,7 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerPaper: {
     width: drawerWidth,
+   
   },
   drawerHeader: {
     display: 'flex',
@@ -73,10 +74,11 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3),
+    padding: theme.spacing(0),
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
+
     }),
     marginLeft: -drawerWidth,
   },
@@ -117,7 +119,7 @@ export default function PersistentDrawerLeft(props) {
   }
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} >
       <CssBaseline />
       <AppBar
         position="fixed"
@@ -125,7 +127,7 @@ export default function PersistentDrawerLeft(props) {
           [classes.appBarShift]: open,
         })}
       >
-        <Toolbar style={{ backgroundColor: "#111d61" }}>
+        <Toolbar style={{ backgroundColor: "#111d61"}}>
           <IconButton
             color="white"
             aria-label="open drawer"
@@ -146,6 +148,7 @@ export default function PersistentDrawerLeft(props) {
             </IconButton>
             ezlife
           </Typography>
+         <AccessAlarmIcon style= {{position: "absolute", right: 0, marginRight: "200px", color: "#F1DD51"}}></AccessAlarmIcon>
           <IconButton onClick={props.getStarted} edge='end' style={{ position: "absolute", right: 0, marginRight: "10px", color: "white" }}>
             Get Started
         </IconButton>

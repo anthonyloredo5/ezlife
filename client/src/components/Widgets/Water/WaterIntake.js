@@ -39,7 +39,7 @@ export default class Demo extends React.PureComponent {
       <Paper style= {{
         width: "299px",
         marginRight: "20px",
-        boxShadow: "0 15px 20px rgba(0,0,0,0.30), 0 10px 12px rgba(0,0,0,0.22)",
+        boxShadow: "0 1px 4px rgba(0,0,0,0.30), 0 1px 4px rgba(0,0,0,0.22)",
       
       }}>
         <Chart
