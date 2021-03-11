@@ -1,11 +1,14 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
+const passportLocalMongoose = require('passport-local-mongoose');
 
-const signUpTemplate = new mongoose.Schema({
+const Account = new mongoose.Schema({
+    username: String,
+    password: String,
+    
+});
+
+Account.plugin(passportLocalMongoose, {
     fullName: {
-        type: String,
-        required: true
-    },
-    userName: {
         type: String,
         required: true
     },
@@ -13,11 +16,7 @@ const signUpTemplate = new mongoose.Schema({
         type: String,
         required: true
     },
-    password: {
-        type: String,
-        required: true
-    },
-    date:{
+    date: {
         type: Date,
         default: Date.now
     },
@@ -41,8 +40,7 @@ const signUpTemplate = new mongoose.Schema({
         type: Boolean,
         default: false,
     },
-})
+});
 
-const model = mongoose.model('myTable', signUpTemplate);
-
-export default model;
+const model = mongoose.model('accounts', Account);
+module.exports = model;

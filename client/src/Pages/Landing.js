@@ -8,7 +8,8 @@ import ModalSignUp from "../components/modalSignUp";
 
 
  
-function Landing() {
+function Landing(props) {
+  console.log('PROPS IN TH LADNIGN!!', props)
   return (
     <div>
       <Hero backgroundImage= {background}> 
@@ -25,7 +26,7 @@ function Landing() {
           <Col size="md-12">
             
 
-          <ModalSignUp />
+          <ModalSignUp updateUser={props.updateUser}/>
 
 
           </Col>

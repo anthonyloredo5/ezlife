@@ -1,31 +1,44 @@
-import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Avatar, Button, Paper, Grid, Typography, Container, TextField } from '@material-ui/core';
-import {  useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import ThemeContext from '../Context.js'
 import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import Auth from "../utils/Auth";
+import { useLocation } from "react-router";
+import { UserContext } from "../utils/UserContext";
 
 import Icon from './icon';
 import Input from './Input';
 import useStyles from './styles';
 
-const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' };
 
-const SignUp = () => {
+const SignUp = (props) => {
   const history = useHistory();
   const classes = useStyles();
-
+  let location = useLocation();
   const { createContext, useContext, useState } = React;
 
-    const stateFromApp = useContext(ThemeContext)
-    console.log('THIS SHOUDL B STATE FROM APP in the home widget', stateFromApp)
 
-  const [form, setForm] = useState(initialState);
+  const [redirectToReferrer, setRedirectToReferrer] = useState(false);
+
+
   const [isSignup, setIsSignup] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword);
+
+
+  //this useeffect runs constantly and wont redirect until the state of redirectToReferrer is set to true
+  useEffect(() => {
+
+    const { from } = location.state || { from: { pathname: '/dash' } }
+    if (redirectToReferrer) {
+      history.push(from)
+    }
+
+  }, [redirectToReferrer, history, location.state])
 
   const [items, setItems] = useState({
     fullName: '',
@@ -47,35 +60,83 @@ const SignUp = () => {
     e.preventDefault();
 
     const registerNewUser = {
-      fullName: items.fullName,
-      userName: items.userName,
-      email: items.email,
+      //fullName: items.fullName,
+      username: items.userName,
+      //email: items.email,
       password: items.password,
     }
 
     const registeredUser = {
-      email: items.email,
+      username: items.userName,
       password: items.password,
     }
 
-    if (isSignup) {
-      axios.post('http://localhost:5000/api/signup', registerNewUser)
-        .then((response) => { 
-          console.log(response.data) 
-          
-          stateFromApp.updateUser(response.data)
-          history.push("/dash");
-        })
-        .catch((err) => err.message);
-    } else {
-      axios.post('http://localhost:5000/api/login', registeredUser)
-        .then((response) => { 
-          console.log(response.data); 
 
-          stateFromApp.updateUser(response.data)
-          history.push("/dash");
+
+    if (isSignup) {
+      
+      console.log((registeredUser));
+      fetch('api/users/register', {
+        method: 'POST',
+        body: JSON.stringify(registeredUser),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        credentials: 'include'
+      })
+        .then((response) => {
+          if (response.status === 200) {
+            console.log('Succesfully registered user!', response);
+            //relocate to the login page
+            console.log('Logging in ' + JSON.stringify(registeredUser));
+            fetch('api/users/login', {
+              method: 'POST',
+              body: JSON.stringify(registeredUser),
+              credentials: 'include',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+            })
+              .then((response) => {
+                if (response.status === 200) { //All good
+                  console.log('response from login', response);
+                  Auth.authenticate(() => { //Update the boolean and take off the cuffs
+                    setRedirectToReferrer(true)
+                    console.log(`Response in login (Authenticate) ${(response)}`, response);
+                    // history.push("/protected")
+                  });
+                }
+              })
+              .catch((err) => {// No beuno, kick them
+                console.log('Error logging in.', err);
+              });
+          }
         })
-        .catch((err) => err.message);
+        .catch((err) => {
+          console.log('Error registering user.', err);
+        });
+    } else {
+      console.log('Logging in ' + JSON.stringify(registeredUser));
+      fetch('api/users/login', {
+        method: 'POST',
+        body: JSON.stringify(registeredUser),
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
+        .then((response) => {
+          if (response.status === 200) { //All good
+            Auth.authenticate(() => { //Update the boolean and take off the cuffs
+              setRedirectToReferrer(true)
+              console.log(`Response in login ${JSON.stringify(response)}`);
+
+            });
+          }
+        })
+        .catch((err) => {// No beuno, kick them
+          console.log('Error logging in.', err);
+        });
     }
   }
 
@@ -116,18 +177,18 @@ const SignUp = () => {
               isSignup && (
                 <>
                   <Input name="fullName" label="Full Name" handleChange={handleChange} />
-                  <Input name="userName" label="Username" handleChange={handleChange} type="username" />
+                  <Input name="email" label="Email" handleChange={handleChange} type="email" />
 
                 </>
 
               )
             }
-            <Input name="email" label="Email" handleChange={handleChange} type="email" />
+            <Input name="userName" label="Username" handleChange={handleChange} type="username" />
             <Input name="password" label="Password" handleChange={handleChange} type={showPassword ? "text" : "password"} handleShowPassword={handleShowPassword} />
             <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
               {isSignup ? 'Sign Up' : 'Sign In'}
             </Button>
-            <GoogleLogin 
+            <GoogleLogin
               clientId="159311272164-001m14bpa0un3clpoc60e26r838d9up6.apps.googleusercontent.com"
               render={(renderProps) => (
                 <Button className={classes.googleButton} color="primary" fullWidth onClick={renderProps.onClick} startIcon={<Icon />} variant="contained">

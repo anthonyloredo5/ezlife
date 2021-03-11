@@ -9,31 +9,31 @@ import Checkbox from '@material-ui/core/Checkbox';
 import useStyles from './styles.js';
 import { Button } from '@material-ui/core';
 import axios from 'axios';
-import ThemeContext from '../../Context';
+import { UserContext } from "../../utils/UserContext";
+const { useContext } = React;
 
 function UserWidgetSelect() {
     const classes = useStyles();
-    const { createContext, useContext, useState } = React;
+    
+
+    const [user, dispatch] = useContext(UserContext)
+	console.log(user, 'should be user from log in')
 
     const [ifError, setIfError] = useState(false);
 
-    const stateFromApp = useContext(ThemeContext)
-    console.log('THIS SHOUDL B STATE FROM APP in the home widget', stateFromApp)
-    console.log('email', stateFromApp.userState.result.email)
-
     const [state, setState] = React.useState({
         //list of selecteable widgets
-        ToDos: stateFromApp.userState.result.ToDos,
-        Clock: stateFromApp.userState.result.Clock,
-        Fitness: stateFromApp.userState.result.Fitness,
-        Goals: stateFromApp.userState.result.Goals
+        ToDos: false,
+        Clock: false,
+        Fitness: false,
+        Goals: false
     });
 
     const handleClick = (e) => {
         e.preventDefault();
 
         const updateUser = {
-            email: stateFromApp.userState.result.email,
+            email: false,
             ToDos: state.ToDos,
             Clock: state.Clock,
             Fitness: state.Fitness,
@@ -43,7 +43,6 @@ function UserWidgetSelect() {
         axios.post('http://localhost:5000/api/update', updateUser)
             .then((response) => {
                 console.log(response.data);
-                stateFromApp.updateUser(response.data)
             })
             .catch((err) => err.message);
     }
