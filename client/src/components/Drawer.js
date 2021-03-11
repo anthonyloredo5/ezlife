@@ -181,7 +181,7 @@ export default function PersistentDrawerLeft(props) {
           ))}
         // </List>) : (null)}  */} 
 
-        (<List component="nav" aria-label="pages">
+        <List component="nav" aria-label="pages">
           {[{ text: 'To-do', url: "/todo", icon: <FormatListBulletedIcon /> }, ].map((item, index) => (
             <Link href={item.url}>
               <ListItem button key={item.text}>
@@ -191,10 +191,10 @@ export default function PersistentDrawerLeft(props) {
               </ListItem>
             </Link>
           ))}
-        </List>) 
+        </List>
 
 
-        (<List component="nav" aria-label="pages2">
+        <List component="nav" aria-label="pages2">
           {[{ text: 'Workouts', url: '/fitness', icon: <FitnessCenterIcon /> }, ].map((item, index) => (
             <Link href={item.url}>
               <ListItem button key={item.text}>
@@ -204,7 +204,7 @@ export default function PersistentDrawerLeft(props) {
               </ListItem>
             </Link>
           ))}
-        </List>)
+        </List>
 
       <List component="nav" aria-label="pages2">
           {[ { text: 'Goals', url: '/goals', icon: <StarsIcon /> }].map((item, index) => (
@@ -259,5 +259,6 @@ export default function PersistentDrawerLeft(props) {
       </main>
     </div >
   );
-}
+      }
+
 

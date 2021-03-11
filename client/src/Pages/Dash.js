@@ -68,7 +68,7 @@ function Dash() {
                     <Quote />
                     </Hero> 
                     <Container>
-                (<HomeWidget />)
+                <HomeWidget />
             </Container>
         </div>
 
