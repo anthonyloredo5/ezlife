@@ -19,6 +19,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import AccessAlarmIcon from '@material-ui/icons/AccessAlarm';
+import AddIcon from '@material-ui/icons/Add';
 import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
 import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
 import StarsIcon from '@material-ui/icons/Stars';
@@ -150,7 +151,7 @@ export default function PersistentDrawerLeft(props) {
           </Typography>
          <AccessAlarmIcon style= {{position: "absolute", right: 0, marginRight: "200px", color: "#F1DD51"}}></AccessAlarmIcon>
           <IconButton onClick={props.getStarted} edge='end' style={{ position: "absolute", right: 0, marginRight: "10px", color: "white" }}>
-            Get Started
+            <AddIcon/>
         </IconButton>
         </Toolbar>
       </AppBar>
@@ -172,17 +173,17 @@ export default function PersistentDrawerLeft(props) {
 
 
 
-        {/* {Clock ? (<List component="nav" aria-label="pages">
+        <List component="nav" aria-label="pages">
           {[{ text: 'Timer', url: "/timer", icon: <AccessAlarmIcon /> }, ].map((item, index) => (
             <Link href={item.url}>
               <ListItem button key={item.text}>
                 {/* <ListItemIcon>{index % 2 === 0 ? < AccessAlarmIcon/> : <FormatListBulletedIcon/>}</ListItemIcon> */}
-        {/* <ListItemIcon>{item.icon}</ListItemIcon>
+         <ListItemIcon>{item.icon}</ListItemIcon>
                 <ListItemText primary={item.text} />
               </ListItem>
             </Link>
           ))}
-        // </List>) : (null)}  */}
+         </List>
 
         <List component="nav" aria-label="pages">
           {[{ text: 'To-do', url: "/todo", icon: <FormatListBulletedIcon /> },].map((item, index) => (
