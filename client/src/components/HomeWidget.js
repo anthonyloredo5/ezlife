@@ -61,7 +61,7 @@ function HomeWidget() {
                 </Grid>
                 <Grid item>
 
-                    <WorkoutChart  style= {{backgroundColor: "#d5d5da"}}/>
+                    {Fitness ? <div><WorkoutChart  style= {{backgroundColor: "#d5d5da"}}/></div> : (null)}
 
 
                 </Grid>
