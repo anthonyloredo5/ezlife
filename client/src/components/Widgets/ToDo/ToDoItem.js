@@ -13,7 +13,8 @@ function ToDoItem(props) {
                     props.setUpdate(e.target.value, item.key)
                 }} />
                 <span>
-                    <DeleteIcon style={{ color: "white" }} onClick={() => {
+
+                    <DeleteIcon style={{ color: "black" }} onClick={() => {
                         props.deleteItem(item.key)
                     }} ></DeleteIcon>
                 </span>
