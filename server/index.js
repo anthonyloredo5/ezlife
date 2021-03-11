@@ -5,7 +5,6 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const path = require('path');
 const { fileURLToPath } = require('url');
-const userRoutes = require('./routes/routes.js');
 const routes = require('./routes/index.js');
 /* === Dependencies === */
 const logger = require('morgan');
