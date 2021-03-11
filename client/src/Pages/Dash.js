@@ -1,8 +1,11 @@
 import React from "react";
 import Container from "../components/Container";
 import Jumbotron from "../components/Jumbotron";
+import Hero from "../components/Hero"; 
 import Drawer from '../components/Drawer';
 import HomeWidget from '../components/HomeWidget';
+import Quote from "../components/Quote"; 
+import gradient from "../images/gradient.jpg"
 import ThemeContext from '../Context.js'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import UserWidgetSelect from "../components/UserWidgetSelect/UserWidgetSelect"
@@ -18,6 +21,7 @@ import ToDoList from '../components/Widgets/ToDo/Todo';
 import Timer from '../components/Widgets/Timer/Timer';
 import { UserContext } from "../utils/UserContext";
 const { useContext, useState, useEffect } = React;
+
 
 function Dash() {
 
@@ -57,47 +61,14 @@ function Dash() {
     console.log('modal state in dash baord!!', modal)
     return (
         <div>
-            <Container>
+            
                 <ModalWidget modal={modal} />
                 <Drawer getStarted={getStarted} />
-                <Jumbotron />
-                (<Box className='widget_box'>
-                    <Grid container justify="center" spacing={3}>
-                        <Grid item>
-                            <Paper style={{ height: 200, width: 200 }} /> Workout of the Day
-            </Grid>
-                        <GridList item style={{
-                            height: 250,
-                            width: 230,
-                            padding: "10px",
-                            overflow: "hidden",
-                            backgroundColor: "orange",
-                            marginBottom: "10px",
-                            marginTop: "10px",
-                            boxShadow: "0 15px 20px rgba(0,0,0,0.30), 0 10px 12px rgba(0,0,0,0.22)",
-
-                        }} >
-                            (<ToDoList />) 
-                        </GridList>
-                        <Grid item>
-                           (<Timer />)
-                        </Grid>
-                        <Grid item>
-                            <Paper style={{ height: 200, width: 200 }} /> Goals
-            </Grid>
-                    </Grid>
-                    <Grid container justify="center" spacing={3}>
-                        <Grid item>
-                            Water Intake
-                </Grid>
-                        <Grid item>
-                            (<GoalChart />)
-                        </Grid>
-                        <Grid item>
-                            <WorkoutChart /> Workout Streak
-                </Grid>
-                    </Grid>
-                </Box>)
+                <Hero backgroundImage={gradient} imageStyle={{opacity: 0.5}}>
+                    <Quote />
+                    </Hero> 
+                    <Container>
+                (<HomeWidget />)
             </Container>
         </div>
 

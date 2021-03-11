@@ -38,7 +38,7 @@ export default class Quote extends Component {
        
         <QuoteAuthor
           generateRandomQuote={this.generateRandomQuote}
-          quote={this.state}
+          quote={this.state} 
         />
         
       </div>
