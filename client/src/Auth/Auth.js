@@ -60,9 +60,9 @@ const SignUp = (props) => {
     e.preventDefault();
 
     const registerNewUser = {
-      //fullName: items.fullName,
+      fullName: items.fullName,
       username: items.userName,
-      //email: items.email,
+      email: items.email,
       password: items.password,
     }
 
@@ -75,10 +75,10 @@ const SignUp = (props) => {
 
     if (isSignup) {
       
-      console.log((registeredUser));
+      console.log((registerNewUser));
       fetch('api/users/register', {
         method: 'POST',
-        body: JSON.stringify(registeredUser),
+        body: JSON.stringify(registerNewUser),
         headers: {
           'Content-Type': 'application/json'
         },

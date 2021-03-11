@@ -9,46 +9,58 @@ import WorkoutChart from './Widgets/WorkoutGraph';
 import ToDoList from './Widgets/ToDo/Todo';
 import Timer from './Widgets/Timer/Timer';
 import WaterIntake from './Widgets/Water/WaterIntake';
+import { UserContext } from "../utils/UserContext";
+const { useContext, useState, useEffect } = React;
 
 
 function HomeWidget() {
-
+    const [user, dispatch] = useContext(UserContext)
+    console.log(user, 'should be user from log in')
+    const Clock = user.Clock;
+    const ToDos = user.ToDos;
+    const Fitness = user.Fitness;
+    const Goals = user.Goals;
+    const Water = user.Water;
 
     return (
         <Box className='widget_box'>
-            <Grid container justify="center" style={{marginTop: "10px"}} spacing={10}>
-            
-                <GridList item style={{
-                    height: 250,
-                    width: 230,
-                    padding: "10px",
-                    overflow: "hidden",
-                    backgroundColor: "#F6D767",
-                    marginBottom: "10px",
-                    marginTop: "40px",
-                    boxShadow: "0 1px 6px rgba(0,0,0,0.30), 0 1px 9px rgba(0,0,0,0.22)",
-                }} >
-                    <ToDoList />
-                </GridList>
+            <Grid container justify="center" style={{ marginTop: "10px" }} spacing={10}>
+
+
+                {ToDos ? (
+                    <GridList item style={{
+                        height: 250,
+                        width: 230,
+                        padding: "10px",
+                        overflow: "hidden",
+                        // backgroundColor: "darkSeaGreen",
+                        marginBottom: "10px",
+                        marginTop: "40px",
+                        boxShadow: "0 15px 20px rgba(0,0,0,0.30), 0 10px 12px rgba(0,0,0,0.22)",
+                    }} >
+
+                        <ToDoList />
+                    </GridList>
+                ) : (null)}
+
                 <Grid item>
-                <GoalChart /> Goal Progress
-            </Grid>
+                    {Goals ? <div><GoalChart /> Goal Progress</div> : (null)}
+                </Grid>
                 <Grid item>
-                    <Timer />
+                    {Clock ? (<Timer />) : (null)}
                 </Grid>
                 {/* this is supposed to be the goals section but i will remove until we figure out what to do with it */}
                 {/* <Grid item>
                     <Paper style={{ height: 200, width: 200 , backgroundColor: "#d5d5da"}} /> 
                  </Grid> */}
-                 
+
             </Grid>
             <Grid container justify="center" spacing={3}>
                 <Grid item>
-                    <WaterIntake style={{ backgroundColor: "#d5d5da"}}/>
+                    {Water ? <div><WaterIntake style={{ backgroundColor: "#d5d5da" }} /></div> : (null)}
                 </Grid>
                 <Grid item>
-                    <WorkoutChart  style= {{backgroundColor: "#d5d5da"}}/> 
-                     
+                    {Fitness ? <div><WorkoutChart style={{ backgroundColor: "#d5d5da" }} /> Workout Streak</div> : (null)}
                 </Grid>
             </Grid>
         </Box>

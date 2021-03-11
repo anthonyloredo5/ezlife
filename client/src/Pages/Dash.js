@@ -1,10 +1,10 @@
 import React from "react";
 import Container from "../components/Container";
 import Jumbotron from "../components/Jumbotron";
-import Hero from "../components/Hero"; 
+import Hero from "../components/Hero";
 import Drawer from '../components/Drawer';
 import HomeWidget from '../components/HomeWidget';
-import Quote from "../components/Quote"; 
+import Quote from "../components/Quote";
 import gradient from "../images/gradient.jpg"
 import ThemeContext from '../Context.js'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
@@ -26,31 +26,33 @@ const { useContext, useState, useEffect } = React;
 function Dash() {
 
     const [user, dispatch] = useContext(UserContext)
-	console.log(user, 'should be user from log in')
+    console.log(user, 'should be user from log in')
+    console.log(user.firstTime);
+    const firstTime = user.firstTime;
 
     const [modal, setModal] = useState(false);
 
     useEffect(() => {
-		fetch('api/users/user', {
-			credentials: 'include'
-		})
-			.then((res) => {
-				console.log(`response to authenticate ${res}`);
-				return res.json(res)
+        fetch('api/users/user', {
+            credentials: 'include'
+        })
+            .then((res) => {
+                console.log(`response to authenticate ${res}`);
+                return res.json(res)
 
-			})
-			.then(data => {
-				console.log(data, 'user DATA');
-				dispatch({
-					type: "GET_USER",
-					payload: data
-				})
+            })
+            .then(data => {
+                console.log(data, 'user DATA');
+                dispatch({
+                    type: "GET_USER",
+                    payload: data
+                })
 
-			})
-			.catch((err) => {
-				console.log('Error fetching authorized user.');
-			});
-	}, []);
+            })
+            .catch((err) => {
+                console.log('Error fetching authorized user.');
+            });
+    }, []);
 
     const getStarted = (e) => {
         e.preventDefault();
@@ -61,14 +63,14 @@ function Dash() {
     console.log('modal state in dash baord!!', modal)
     return (
         <div>
-            
-                <ModalWidget modal={modal} />
-                <Drawer getStarted={getStarted} />
-                <Hero backgroundImage={gradient} imageStyle={{opacity: 0.5}}>
-                    <Quote />
-                    </Hero> 
-                    <Container>
-                <HomeWidget />
+
+            <ModalWidget modal={modal} />
+            <Drawer getStarted={getStarted} />
+            <Hero backgroundImage={gradient} imageStyle={{ opacity: 0.5 }}>
+                <Quote />
+            </Hero>
+            <Container>
+                {firstTime ? (null) : <HomeWidget />}
             </Container>
         </div>
 
