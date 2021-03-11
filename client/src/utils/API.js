@@ -9,7 +9,7 @@ export default {
   },
   // Deletes the book with the given id
   deleteTodo: function(id) {
-    return axios.delete("http://localhost:5000/api/todos/" + id);
+    return axios.delete("http://localhost:5000/api/todos" + id);
   },
   // Saves a book to the database
   saveTodo: function(todoData) {

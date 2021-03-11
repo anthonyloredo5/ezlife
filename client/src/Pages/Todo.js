@@ -5,6 +5,7 @@ import Container from "../components/Container";
 import Row from "../components/Row"; 
 import Col from "../components/Col"; 
 import DeleteBtn from "../components/DeleteBtn";
+import Drawer from "../components/Drawer"; 
 
 
 
@@ -64,7 +65,7 @@ function Todos() {
 
     return (
       <Container fluid>
-           
+           <Drawer />
         <Row>
         <Col size="md-6">
             <h1>To Do: </h1>
