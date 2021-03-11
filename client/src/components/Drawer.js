@@ -113,7 +113,7 @@ export default function PersistentDrawerLeft(props) {
       type: "GET_USER",
       payload: {}
     })
-  
+
   }
 
   return (
@@ -125,7 +125,7 @@ export default function PersistentDrawerLeft(props) {
           [classes.appBarShift]: open,
         })}
       >
-        <Toolbar style= {{backgroundColor: "#111d61"}}>
+        <Toolbar style={{ backgroundColor: "#111d61" }}>
           <IconButton
             color="white"
             aria-label="open drawer"
@@ -133,21 +133,21 @@ export default function PersistentDrawerLeft(props) {
             edge="start"
             className={clsx(classes.menuButton, open && classes.hide)}
           >
-            <MenuIcon style= {{color: "white"}}/>
+            <MenuIcon style={{ color: "white" }} />
           </IconButton>
           <Typography variant="h6" noWrap>
             <IconButton
               aria-label="list"
             >
               <Link href="/dash">
-              <FavoriteBorderIcon style={{ color: "#ffd54f" }} 
-              /></Link>
-              
+                <FavoriteBorderIcon style={{ color: "#ffd54f" }}
+                /></Link>
+
             </IconButton>
             ezlife
           </Typography>
-            <IconButton onClick={props.getStarted} edge='end' style={{ position: "absolute", right: 0, marginRight: "10px", color: "white" }}>
-              Get Started
+          <IconButton onClick={props.getStarted} edge='end' style={{ position: "absolute", right: 0, marginRight: "10px", color: "white" }}>
+            Get Started
         </IconButton>
         </Toolbar>
       </AppBar>
@@ -168,21 +168,21 @@ export default function PersistentDrawerLeft(props) {
         <Divider />
 
 
-        
-       {/* {Clock ? (<List component="nav" aria-label="pages">
+
+        {/* {Clock ? (<List component="nav" aria-label="pages">
           {[{ text: 'Timer', url: "/timer", icon: <AccessAlarmIcon /> }, ].map((item, index) => (
             <Link href={item.url}>
               <ListItem button key={item.text}>
                 {/* <ListItemIcon>{index % 2 === 0 ? < AccessAlarmIcon/> : <FormatListBulletedIcon/>}</ListItemIcon> */}
-                {/* <ListItemIcon>{item.icon}</ListItemIcon>
+        {/* <ListItemIcon>{item.icon}</ListItemIcon>
                 <ListItemText primary={item.text} />
               </ListItem>
             </Link>
           ))}
-        // </List>) : (null)}  */} 
+        // </List>) : (null)}  */}
 
         <List component="nav" aria-label="pages">
-          {[{ text: 'To-do', url: "/todo", icon: <FormatListBulletedIcon /> }, ].map((item, index) => (
+          {[{ text: 'To-do', url: "/todo", icon: <FormatListBulletedIcon /> },].map((item, index) => (
             <Link href={item.url}>
               <ListItem button key={item.text}>
                 {/* <ListItemIcon>{index % 2 === 0 ? < AccessAlarmIcon/> : <FormatListBulletedIcon/>}</ListItemIcon> */}
@@ -195,7 +195,7 @@ export default function PersistentDrawerLeft(props) {
 
 
         <List component="nav" aria-label="pages2">
-          {[{ text: 'Workouts', url: '/fitness', icon: <FitnessCenterIcon /> }, ].map((item, index) => (
+          {[{ text: 'Workouts', url: '/fitness', icon: <FitnessCenterIcon /> },].map((item, index) => (
             <Link href={item.url}>
               <ListItem button key={item.text}>
                 {/* <ListItemIcon>{index % 2 === 0 ? <FitnessCenterIcon/> : <StarsIcon/>  }</ListItemIcon> */}
@@ -206,8 +206,8 @@ export default function PersistentDrawerLeft(props) {
           ))}
         </List>
 
-      <List component="nav" aria-label="pages2">
-          {[ { text: 'Goals', url: '/goals', icon: <StarsIcon /> }].map((item, index) => (
+        <List component="nav" aria-label="pages2">
+          {[{ text: 'Goals', url: '/goals', icon: <StarsIcon /> }].map((item, index) => (
             <Link href={item.url}>
               <ListItem button key={item.text}>
                 {/* <ListItemIcon>{index % 2 === 0 ? <FitnessCenterIcon/> : <StarsIcon/>  }</ListItemIcon> */}
@@ -259,6 +259,6 @@ export default function PersistentDrawerLeft(props) {
       </main>
     </div >
   );
-      }
+}
 
 
