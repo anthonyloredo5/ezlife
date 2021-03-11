@@ -14,6 +14,7 @@ const passportLocal = require('passport-local');
 const LocalStrategy = passportLocal.Strategy;
 const flash = require('connect-flash');
 const session = require('express-session');
+const apiRoutes = require("./routes/api/todoAPI")
 
 
 
@@ -51,6 +52,8 @@ passport.deserializeUser(Account.deserializeUser());
 
 //app.use('/api', userRoutes);
 app.use(routes);
+app.use('/api', apiRoutes); 
+
 //middle for posts
 //adds "posts" to all post routes coming into this file
 //app.use('/posts', postRoutes);
@@ -67,3 +70,11 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 .catch((error) => console.log(error.message));
 
 mongoose.set('useFindAndModify', false);
+
+
+// Connect to the Mongo DB
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/testing");
+// // Start the API server
+// app.listen(PORT, function() {
+//   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+// });
