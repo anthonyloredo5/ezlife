@@ -56,7 +56,7 @@ handleInput(e){
         <header>
         <h1>Fitness Tracker</h1>
           <form id="to-do-form" onSubmit={this.addItem}>
-            <input className
+            <input className size="75"
               type="text" 
               placeholder="Add your workout here!" 
               value={this.state.currentItem.text} 
