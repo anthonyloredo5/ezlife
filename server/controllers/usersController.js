@@ -2,6 +2,28 @@ const Account = require("../models/account");
 const passport = require('passport');
 
 module.exports = {
+	update: function (req, res) {
+		console.log(req.session.passport, 'user being passed to updateUser');
+		const { user } = req.session.passport
+		console.log('req. body in the update!!!!!!', req.body)
+		console.log(user, 'user value');
+
+		if (user) {
+			Account.findOneAndUpdate({username: user}, {$set: {Water: req.body.Water, ToDos: req.body.ToDos, Clock: req.body.Clock, Fitness: req.body.Fitness, Goals: req.body.Goals, firstTime: false } }, {new: true}, (err, userData) => {
+				if (err) {
+					console.log("Something wrong when updating data!");
+				}
+				console.log(userData, "userdata after update");
+			
+				return res.status(200).json(userData)
+			})
+		} else {
+			return res.status(401).json({
+				error: 'User is not authenticated',
+				authenticated: false
+			});
+		}
+	},
 	getUser: function (req, res) {
 		console.log(req.session.passport, 'user being passed to getUser');
 		const { user } = req.session.passport
@@ -12,11 +34,8 @@ module.exports = {
 				.then(userData => {
 					console.log(userData, "userdata");
 					const { _id, username } = userData;
-					return res.status(200).json({
-						id: _id,
-						username,
-						authenticated: true
-					})
+					userData.authenticated = true;
+					return res.status(200).json(userData)
 				})
 		} else {
 			return res.status(401).json({

@@ -10,8 +10,11 @@ router.route("/")
 router.route("/register")
   .post(usersController.register);
 
-router.route("/login")
+//update route
+router.route("/update")
+.post(usersController.update);
 
+router.route("/login")
 //Added this to redirect to the login 
 .post(passport.authenticate('local', { failureRedirect: '/login' }),usersController.login);
 //Changed to post route to match the request
