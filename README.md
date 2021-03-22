@@ -1,6 +1,10 @@
 ## Project Name: 
 *ezlife*
 
+## Link to Live Application 
+
+https://ezlife-17.herokuapp.com/
+
 ## Table of Contents 
 
 * [Purpose/Vision](#purpose/vision)
@@ -32,10 +36,8 @@ This app uses React and Material UI!
 
 ## Screenshots
 
- ![Screenshots](./assets/screenshot1.png)
- ![Screenshots](./assets/screenshot2.png)
- ![Screenshots](./assets/screenshot3.png)
- ![Screenshots](./assets/screenshot4.png)
+ ![Screenshots](https://github.com/anthonyloredo5/ezlife/blob/main/client/assets/screenshot1.png?raw=true)
+ ![Screenshots](https://github.com/anthonyloredo5/ezlife/blob/main/client/assets/screenshot2.png?raw=true)
 
 
 
