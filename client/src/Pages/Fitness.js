@@ -1,12 +1,12 @@
 import React from "react"; 
-import WorkoutTracker from '../components/WorkoutTracker.js';
 import Drawer from '../components/Drawer';
+import WorkoutCalendar from "../components/WorkoutCalendar.js";
 
 function Fitness () { 
     return ( 
         <>
         <Drawer />
-        <WorkoutTracker/>
+        <WorkoutCalendar/>
         </>
     )
 }
