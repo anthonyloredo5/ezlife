@@ -12,8 +12,6 @@ import AddActivity from './AddWorkout';
 
 function Calendar(props) {
 
-    const {authUser} = props;
-
     let defaultSelectedDay = {
         day: moment().format("D"),
         month: moment().month()

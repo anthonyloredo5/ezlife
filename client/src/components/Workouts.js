@@ -1,5 +1,5 @@
 import React from 'react';
-
+import AddActivity from './AddWorkout';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -7,19 +7,10 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import DeleteIcon from '@material-ui/icons/Delete';
-import EditIcon from '@material-ui/icons/Edit';
 
 function ActivityList(props) {
-    const {activities, editActivity, setOpenSnackbar, setEditing } = props;
-
-
+    const { activities, addActivity, setOpenSnackbar, setEditing } = props;
     return (
-        <>
-            {
-                activities === 'not set' || activities === null
-                    ? <p>No activities added yet.</p>
-                    :
                     <TableContainer component={Paper} >
                         <Table>
                             <TableHead>
@@ -27,7 +18,7 @@ function ActivityList(props) {
                                     <TableCell>Name</TableCell>
                                     <TableCell>Type</TableCell>
                                     <TableCell>Duration</TableCell>
-                                    <TableCell>Actions</TableCell>
+
                                 </TableRow>
                             </TableHead>
                             <TableBody>
@@ -36,13 +27,22 @@ function ActivityList(props) {
                                         let { name, type, duration } = activity;
                                         switch (activity.type) {
                                             case 1:
-                                                type = "Lifting weights";
+                                                type = "Strength Training";
                                                 break;
                                             case 2:
                                                 type = "Running";
                                                 break;
                                             case 3:
                                                 type = "Cycling";
+                                                break;
+                                            case 4:
+                                                type = "CrossFit";
+                                                break;
+                                            case 5:
+                                                type = "Swimming";
+                                                break;
+                                            case 6:
+                                                type = "Yoga";
                                                 break;
                                             default:
                                                 type = "Not set";
@@ -68,8 +68,6 @@ function ActivityList(props) {
                             </TableBody>
                         </Table>
                     </TableContainer>
-            }
-        </>
     )
 };
 export default ActivityList;

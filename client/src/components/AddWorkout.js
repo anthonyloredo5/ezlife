@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
 function AddActivity(props) {
     const classes = useStyles();
 
-    const {authUser, selectedDay, setOpenSnackbar, setSnackbarMsg} = props;
+    const {selectedDay, setOpenSnackbar, setSnackbarMsg} = props;
     
 
     // Set query date for updating database
@@ -41,6 +41,7 @@ function AddActivity(props) {
 
     const handleChange = e => {
         const { name, value } = e.target
+        console.log(e); 
         setActivity({
             ...activity, 
             date: queryDate,
@@ -55,7 +56,8 @@ function AddActivity(props) {
     const isValid = activity.name === '';
 
     const handleSubmit = () => {
-        if (authUser) {
+            console.log('YOU SUBMITTED SMARTY');
+            // AddActivity();
             setActivity(defaultActivity);
             // Show notification
             setOpenSnackbar(true);
@@ -63,7 +65,6 @@ function AddActivity(props) {
             setTimeout(() => {
                 setOpenSnackbar(false)
             }, 3000)
-        }
     }
 
     return (
@@ -92,9 +93,12 @@ function AddActivity(props) {
                         name="type"
                         onChange={handleChange}
                     >
-                        <MenuItem value={1}>Lifting Weights</MenuItem>
+                        <MenuItem value={1}>Strength Training</MenuItem>
                         <MenuItem value={2}>Running</MenuItem>
                         <MenuItem value={3}>Cycling</MenuItem>
+                        <MenuItem value={4}>CrossFit</MenuItem> 
+                        <MenuItem value={5}>Swimming</MenuItem>
+                        <MenuItem value={6}>Yoga</MenuItem>
                     </Select>
                 </div>
                 <Typography id="discrete-slider" gutterBottom>
