@@ -58,7 +58,7 @@ function Calendar(props) {
     const [snackbarMsg, setSnackbarMsg] = useState(null);
 
     /*** ACTIVITY LIST ***/
-    const [activities, setActivities] = useState(true);
+    const [activities, setActivities] = useState([]);
     const [loading, setLoading] = useState([]);
     const [activeDays, setActiveDays] = useState([]);
 
@@ -92,7 +92,9 @@ function Calendar(props) {
                              <>
                                 <h3>Add activity on {selectedDay.day}-{selectedDay.month + 1} </h3>
                                 <AddActivity 
-                                    selectedDay={selectedDay} 
+                                    selectedDay={selectedDay}
+                                    activities={activities}
+                                    setActivities={setActivities} 
                                     authUser={props.authUser}
                                     setOpenSnackbar={setOpenSnackbar}
                                     setSnackbarMsg={setSnackbarMsg}

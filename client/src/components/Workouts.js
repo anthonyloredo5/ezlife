@@ -10,6 +10,9 @@ import Paper from '@material-ui/core/Paper';
 
 function ActivityList(props) {
     const { activities, addActivity, setOpenSnackbar, setEditing } = props;
+    console.log({
+        activities: activities
+    });
     return (
                     <TableContainer component={Paper} >
                         <Table>

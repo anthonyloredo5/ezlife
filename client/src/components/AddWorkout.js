@@ -21,8 +21,8 @@ const useStyles = makeStyles(theme => ({
 
 function AddActivity(props) {
     const classes = useStyles();
-
-    const {selectedDay, setOpenSnackbar, setSnackbarMsg} = props;
+    console.log(props); 
+    const {selectedDay, setOpenSnackbar, setSnackbarMsg, activities, setActivities} = props;
     
 
     // Set query date for updating database
@@ -40,8 +40,7 @@ function AddActivity(props) {
     const [activity, setActivity] = useState(defaultActivity);
 
     const handleChange = e => {
-        const { name, value } = e.target
-        console.log(e); 
+        const { name, value } = e.target 
         setActivity({
             ...activity, 
             date: queryDate,
@@ -56,8 +55,10 @@ function AddActivity(props) {
     const isValid = activity.name === '';
 
     const handleSubmit = () => {
-            console.log('YOU SUBMITTED SMARTY');
+            console.log(activities);
             // AddActivity();
+            setActivities(activities.push(activity)); 
+            console.log(activities);
             setActivity(defaultActivity);
             // Show notification
             setOpenSnackbar(true);
