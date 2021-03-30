@@ -7,7 +7,7 @@ import Drawer from "./components/Drawer";
 import Landing from './Pages/Landing';
 import Dash from "./Pages/Dash";
 import axios from 'axios';
-
+import ToDo from './Pages/ToDoPage'
 import ThemeContext from './Context.js'
 import CreateAccount from './components/CreateAccount';
 import Login from './components/Login';
@@ -81,6 +81,7 @@ function App() {
           <Route path="/screentime" component={Screentime}  />
           <Route path="/budget" component={Budget}  />
           <Route path="/UserWidgetSelect" component={UserWidgetSelect} />
+          <Route path="/todo" component={ToDo} />
 
         </Wrapper>
       </div>
