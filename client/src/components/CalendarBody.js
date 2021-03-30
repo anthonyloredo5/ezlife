@@ -12,7 +12,7 @@ import Paper from '@material-ui/core/Paper';
 
 const CalendarBody = props => {
 
-    const { firstDayOfMonth, daysInMonth, currentDay, currentMonth, currentMonthNum, selectedDay, setSelectedDay, actualMonth, weekdays } = props;
+    const { firstDayOfMonth, daysInMonth, currentDay, currentMonth, currentMonthNum, selectedDay, activeDays, setSelectedDay, actualMonth, weekdays } = props;
 
     let blanks = [];
     for (let i = 0; i < firstDayOfMonth(); i++) {
@@ -30,6 +30,8 @@ const CalendarBody = props => {
 
         // Check if day is selected day
         if (selectedDay === d && currentMonthNum() === selectedDay) selectDay = "selected-day";
+        let formattedDate = `${d}-${currentMonth()}`;
+        // if (activeDays.indexOf(formattedDate) !== -1) activeDay = "active";
 
         monthDays.push(
             <TableCell 
