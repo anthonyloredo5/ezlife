@@ -20,15 +20,17 @@ import WorkoutChart from '../components/Widgets/WorkoutGraph';
 import ToDoList from '../components/Widgets/ToDo/Todo';
 import Timer from '../components/Widgets/Timer/Timer';
 import { UserContext } from "../utils/UserContext";
+import { useHistory } from 'react-router-dom';
 const { useContext, useState, useEffect } = React;
 
 
 function Dash() {
-
+    const history = useHistory();
     const [user, dispatch] = useContext(UserContext)
     console.log(user, 'should be user from log in')
     console.log(user.firstTime);
     const firstTime = user.firstTime;
+
 
     const [modal, setModal] = useState(false);
 
@@ -50,6 +52,8 @@ function Dash() {
 
             })
             .catch((err) => {
+                alert("Could not detect current user");
+                history.push("/")
                 console.log('Error fetching authorized user.');
             });
     }, []);
