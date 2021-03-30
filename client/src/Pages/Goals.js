@@ -3,8 +3,10 @@ import { UserContext } from "../utils/UserContext";
 import Drawer from '../components/Drawer';
 import background from '../images/bubble.svg';
 import Hero from '../components/Hero';
+import { useHistory } from 'react-router-dom';
 
 function Goals () { 
+    const history = useHistory();
     const [user, dispatch] = useContext(UserContext)
     console.log(user, 'should be user from log in')
     console.log(user.firstTime);
@@ -30,6 +32,8 @@ function Goals () {
 
             })
             .catch((err) => {
+                alert("Could not detect current user");
+                history.push("/")
                 console.log('Error fetching authorized user.');
             });
     }, []);

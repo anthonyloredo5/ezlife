@@ -2,8 +2,10 @@ import React, {useState, useEffect, useContext} from "react";
 import { UserContext } from "../utils/UserContext";
 import Drawer from '../components/Drawer';
 import WorkoutCalendar from "../components/WorkoutCalendar.js";
+import { useHistory } from 'react-router-dom';
 
-function Fitness () { 
+function Fitness () {
+    const history = useHistory(); 
     const [user, dispatch] = useContext(UserContext)
     console.log(user, 'should be user from log in')
     console.log(user.firstTime);
@@ -27,6 +29,8 @@ function Fitness () {
 
             })
             .catch((err) => {
+                alert("Could not detect current user");
+                history.push("/")
                 console.log('Error fetching authorized user.');
             });
     }, []);
