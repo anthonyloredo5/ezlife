@@ -51,6 +51,7 @@ class ToDoList extends React.Component {
         return (
 
           <div className="ToDoList">
+            <h4 text align = "center">To-Do List</h4>
             <header>
               <form id="to-do-form" onSubmit={this.addItem}>
                 <input className
@@ -61,7 +62,7 @@ class ToDoList extends React.Component {
                   onChange={this.handleInput}
                  
                 />
-                <AddCircleOutlineIcon style={{ color: "white" }}
+                <AddCircleOutlineIcon style={{ color: "grey" }}
                 type="submit"
                 onClick={this.addItem}
                 >Add</AddCircleOutlineIcon>

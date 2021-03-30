@@ -53,7 +53,7 @@ class Timer extends React.Component {
     return (
       <div id="time" style={{boxShadow: "0 1px 5px rgba(0,0,0,0.30), 0 1px 5px rgba(0,0,0,0.22)"}} >
         <div class="insideCircle">
-          <h3>timer:</h3>
+          <h3>Timer:</h3>
           <div className="Stopwatch-display">
             {hours} : {minutes} : {seconds} : {centiseconds}
           </div>
