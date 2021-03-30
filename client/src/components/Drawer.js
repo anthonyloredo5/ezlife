@@ -98,6 +98,7 @@ export default function PersistentDrawerLeft(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  
   const [user, dispatch] = useContext(UserContext);
   console.log(user, 'should be user from log in')
   const Clock = user.Clock;
