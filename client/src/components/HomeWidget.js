@@ -44,7 +44,7 @@ function HomeWidget() {
                 ) : (null)}
 
                 <Grid item>
-                    {Goals ? <div><GoalChart /> Goal Progress</div> : (null)}
+                    {Goals ? <div><GoalChart /> <h4 text align = "center">Goal Progress</h4></div> : (null)}
                 </Grid>
                 <Grid item>
                     {Clock ? (<Timer />) : (null)}

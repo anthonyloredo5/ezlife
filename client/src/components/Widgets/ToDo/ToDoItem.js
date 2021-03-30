@@ -1,5 +1,5 @@
 import React from "react";
-import DeleteIcon from '@material-ui/icons/Delete';
+import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 import "./Todo.css";
 
 
@@ -14,9 +14,9 @@ function ToDoItem(props) {
                 }} />
                 <span>
 
-                    <DeleteIcon style={{ color: "black" }} onClick={() => {
+                    <DeleteOutlineIcon style={{ color: "grey" }} onClick={() => {
                         props.deleteItem(item.key)
-                    }} ></DeleteIcon>
+                    }} ></DeleteOutlineIcon>
                 </span>
             </p>
 

@@ -1,18 +1,14 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, {useState, useEffect, useContext} from "react"; 
 import { UserContext } from "../utils/UserContext";
 import Drawer from '../components/Drawer';
-import Timer from "../components/Widgets/Timer/Timer";
+import Calendar from "../components/Scheduler";
 import { useHistory } from 'react-router-dom';
-import GridList from '@material-ui/core/GridList';
-import Grid from '@material-ui/core/Grid';
 
-function TimerPage() {
-    const history = useHistory();
+function ToDo () {
+    const history = useHistory(); 
     const [user, dispatch] = useContext(UserContext)
     console.log(user, 'should be user from log in')
     console.log(user.firstTime);
-    const firstTime = user.firstTime;
-
     const [modal, setModal] = useState(false);
 
     useEffect(() => {
@@ -39,34 +35,19 @@ function TimerPage() {
             });
     }, []);
 
+
     const getStarted = (e) => {
         e.preventDefault();
 
         setModal(!modal)
     }
 
-    return (
+    return ( 
         <>
-            <Drawer getStarted={getStarted} />
-            <Grid container justify="center" style={{ marginTop: "10px" }} spacing={10}>
-                <Grid item>
-                <Timer />
-                <h3 text align = "center">Screentime</h3>
-                </Grid>
-                
-                <Grid item>
-                <Timer />
-                <h3 text align = "center">Break</h3>
-                </Grid> 
-
-                <Grid item>
-                <Timer />
-                <h3 text align = "center">Work</h3>
-                </Grid>
-    
-            </Grid>
+        <Drawer getStarted={getStarted}/>
+        <Calendar/>
         </>
     )
 }
 
-export default TimerPage;
+export default ToDo; 
