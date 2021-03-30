@@ -95,7 +95,6 @@ function Calendar(props) {
                                     selectedDay={selectedDay}
                                     activities={activities}
                                     setActivities={setActivities} 
-                                    authUser={props.authUser}
                                     setOpenSnackbar={setOpenSnackbar}
                                     setSnackbarMsg={setSnackbarMsg}
                                 />

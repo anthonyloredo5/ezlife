@@ -53,14 +53,14 @@ function AddActivity(props) {
     }
 
     const isValid = activity.name === '';
-
+   
     const handleSubmit = () => {
-            console.log(activities);
-            // AddActivity();
-            setActivities(activities.push(activity)); 
-            console.log(activities);
+            console.log(activities, " this is the first log");
+            activities.push(activity); 
+            setActivities(activities); 
+            console.log(activities, "this is the second log");
             setActivity(defaultActivity);
-            // Show notification
+            //Show notification
             setOpenSnackbar(true);
             setSnackbarMsg('Added activity');
             setTimeout(() => {

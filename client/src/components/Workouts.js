@@ -9,10 +9,9 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
 function ActivityList(props) {
+    console.log(props);
+    console.log('you made it to the calendar!');  
     const { activities, addActivity, setOpenSnackbar, setEditing } = props;
-    console.log({
-        activities: activities
-    });
     return (
                     <TableContainer component={Paper} >
                         <Table>
@@ -56,13 +55,6 @@ function ActivityList(props) {
                                                 <TableCell>{type}</TableCell>
                                                 <TableCell>{duration}</TableCell>
                                                 <TableCell>
-                                                    {/* <DeleteIcon
-                                                        onClick={e => deleteActivity(i)}
-                                                    />
-                                                    <EditIcon
-                                                        onClick={e => editActivity(activity, i)}
-                                                        style={{ marginLeft: "20px" }}
-                                                    /> */}
                                                 </TableCell>
                                             </TableRow>
                                         );
