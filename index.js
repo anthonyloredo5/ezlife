@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const dotenv = require('dotenv');
+//const dotenv = require('dotenv');
 const path = require('path');
 const { fileURLToPath } = require('url');
 const routes = require('./routes/index.js');
@@ -18,7 +18,7 @@ const session = require('express-session');
 
 
 const app = express();
-dotenv.config();
+//dotenv.config();
 
 /* === Middleware === */
 app.use(logger('dev'));
